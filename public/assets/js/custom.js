@@ -5,12 +5,14 @@
 
 **/
 function activeTabs() {
+  console.log("toggle5");
+
 	let tabElement = $(".tabs");
 	tabElement.toggleClass("tab-active");
 	let arrow = $(".arrow-icon");
 	arrow.toggleClass("arrow-icon-up");
 }
-  
+
 var Jobick  = function(){
 	'use strict';
 
@@ -229,7 +231,7 @@ var Jobick  = function(){
 		dialog = modal.find('.modal-dialog');
 		modal.css('display', 'block');
 
-		/* Dividing by two centers the modal exactly, but dividing by three 
+		/* Dividing by two centers the modal exactly, but dividing by three
 		 or four works better for larger screens.  */
 		dialog.css("margin-top", Math.max(0, (jQuery(window).height() - dialog.height()) / 2));
 	}
@@ -314,8 +316,8 @@ var Jobick  = function(){
 
 
 	var pointerEffect = function(){
-		/* 
-			pointer.js was created by OwL for use on websites, 
+		/*
+			pointer.js was created by OwL for use on websites,
 			 and can be found at https://seattleowl.com/pointer.
 		*/
 
@@ -480,7 +482,7 @@ jQuery(window).on('resize',function () {
 
 (function ($) {
 	"use strict";
-  
+
 	//-------------- Click event to scroll to top
 	$(window).on('scroll', function () {
 	  if ($(this).scrollTop() > 200) {
@@ -493,7 +495,7 @@ jQuery(window).on('resize',function () {
 	  $('html, body').animate({ scrollTop: 0 });
 	  return false;
 	});
-  
+
 	// ----------------------------- Lazy Load
 	if ($(".lazy-img").length) {
 	  $('.lazy-img').Lazy({
@@ -501,8 +503,8 @@ jQuery(window).on('resize',function () {
 		threshold: 300
 	  });
 	}
-  
-  
+
+
 	// ----------------------------- Counter Function
 	var timer = $('.counter');
 	if (timer.length) {
@@ -511,17 +513,17 @@ jQuery(window).on('resize',function () {
 		time: 1200,
 	  });
 	}
-  
+
 	// ------------------------ Navigation Scroll
 	$(window).on('scroll', function () {
 	  var sticky = $('.sticky-menu'),
 		scroll = $(window).scrollTop();
 	  if (scroll >= 180) sticky.addClass('fixed');
 	  else sticky.removeClass('fixed');
-  
+
 	});
-  
-  
+
+
 	// -------------------- Remove Placeholder When Focus Or Click
 	$("input,textarea").each(function () {
 	  $(this).data('holder', $(this).attr('placeholder'));
@@ -532,29 +534,29 @@ jQuery(window).on('resize',function () {
 		$(this).attr('placeholder', $(this).data('holder'));
 	  });
 	});
-  
-  
-	// ---------------- Grid And List 
+
+
+	// ---------------- Grid And List
 	if ($(".product-gallery").length) {
 	  $("#list-btn").on("click", function () {
 		$(".item").addClass("list-style");
 		$(this).addClass("active");
 		$("#grid-btn").removeClass("active");
 	  });
-  
+
 	  $("#grid-btn").on("click", function () {
 		$(".item").removeClass("list-style");
 		$(this).addClass("active");
 		$("#list-btn").removeClass("active");
 	  });
 	}
-  
-  
+
+
 	// ---------------------- Filter More Item Button
 	if ($(".more-btn").length) {
 	  $(".more-btn").on("click", function () {
 		let $more = $(this).siblings('ul').toggleClass("show");
-  
+
 		if ($more.hasClass('show')) {
 		  $(this).html('<i class="bi bi-dash"></i> Show Less');
 		} else {
@@ -562,8 +564,8 @@ jQuery(window).on('resize',function () {
 		}
 	  });
 	}
-  
-  
+
+
 	// ---------------------- Grid and List Switcher
 	if ($(".style-changer-btn").length) {
 	  $(".list-btn").on("click", function () {
@@ -572,7 +574,7 @@ jQuery(window).on('resize',function () {
 		$(".grid-style").removeClass("show");
 		$(".list-style").addClass("show");
 	  });
-  
+
 	  $(".grid-btn").on("click", function () {
 		$(this).removeClass("active");
 		$(".list-btn").addClass("active");
@@ -580,14 +582,14 @@ jQuery(window).on('resize',function () {
 		$(".list-style").removeClass("show");
 	  });
 	}
-  
-  
+
+
 	// ----------------------------- Select Function
 	if ($(".nice-select").length) {
 	  $('.nice-select').niceSelect();
 	}
-  
-  
+
+
 	// ------------------------ Expert Slider One
 	if ($(".expert-slider-one").length) {
 	  $('.expert-slider-one').slick({
@@ -617,8 +619,8 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
-  
+
+
 	// ------------------------ Expert Slider Two
 	if ($(".expert-slider-two").length) {
 	  $('.expert-slider-two').slick({
@@ -652,7 +654,7 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
+
 	// ------------------------ Feedback Slider One
 	if ($(".feedback-slider-one").length) {
 	  $('.feedback-slider-one').slick({
@@ -676,8 +678,8 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
-  
+
+
 	// ------------------------ Feedback Slider Two
 	if ($(".feedback-slider-two").length) {
 	  $('.feedback-slider-two').slick({
@@ -705,7 +707,7 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
+
 	// ------------------------ Feedback Slider Three
 	if ($(".feedback-slider-three-a").length) {
 	  $('.feedback-slider-three-a').slick({
@@ -750,7 +752,7 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
+
 	// ------------------------ Partner Slider
 	if ($(".partner-slider").length) {
 	  $('.partner-slider').slick({
@@ -784,8 +786,8 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
-  
+
+
 	// ------------------------ Category Slider
 	if ($(".category-slider-one").length) {
 	  $('.category-slider-one').slick({
@@ -821,8 +823,8 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
-  
+
+
 	// ------------------------ Related Job Slider
 	if ($(".related-job-slider").length) {
 	  $('.related-job-slider').slick({
@@ -852,8 +854,8 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
-  
+
+
 	// ------------------------ Company Review Slider
 	if ($(".company-review-slider").length) {
 	  $('.company-review-slider').slick({
@@ -875,7 +877,7 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
+
 	// ------------------------ Candidate Portfolio
 	if ($(".candidate-portfolio-slider").length) {
 	  $('.candidate-portfolio-slider').slick({
@@ -903,29 +905,29 @@ jQuery(window).on('resize',function () {
 		]
 	  });
 	}
-  
+
 	// -----------------------Location Range
 	if ($("#locationRange").length) {
 	  $('#locationRange').on("mousemove", function () {
 		$('#rangeValue').text($('#locationRange').val());
 	  });
 	}
-  
-  
+
+
 	// --------------------------------- Contact Form
 	// init the validator
 	// validator files are included in the download package
 	// otherwise download from http://1000hz.github.io/bootstrap-validator
-  
+
 	if ($("#contact-form").length) {
 	  $('#contact-form').validator();
 	  // when the form is submitted
 	  $('#contact-form').on('submit', function (e) {
-  
+
 		// if the validator does not prevent form submit
 		if (!e.isDefaultPrevented()) {
 		  var url = "inc/contact.html";
-  
+
 		  // POST values in the background the the script URL
 		  $.ajax({
 			type: "POST",
@@ -933,14 +935,14 @@ jQuery(window).on('resize',function () {
 			data: $(this).serialize(),
 			success: function (data) {
 			  // data = JSON object that contact.php returns
-  
+
 			  // we recieve the type of the message: success x danger and apply it to the
 			  var messageAlert = 'alert-' + data.type;
 			  var messageText = data.message;
-  
+
 			  // let's compose Bootstrap alert box HTML
 			  var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-  
+
 			  // If we have messageAlert and messageText
 			  if (messageAlert && messageText) {
 				// inject the alert to .messages div in our form
@@ -964,7 +966,7 @@ jQuery(window).on('resize',function () {
 		} else {
 		  input.attr("type", "password");
 		}
-  
+
 	  });
 	}
 	// -------------------------- Dashboard Mobile Sidebar
@@ -976,18 +978,18 @@ jQuery(window).on('resize',function () {
 		$(".dash-aside-navbar").removeClass("show");
 	  });
 	}
-  
-  
-  
+
+
+
 	$(window).on('load', function () { // makes sure the whole site is loaded
-  
+
 	  // -------------------- Site Preloader
 	  $('#ctn-preloader').fadeOut(); // will first fade out the loading animation
 	  $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
 	  $('body').delay(350).css({ 'overflow': 'visible' });
-  
-  
-  
+
+
+
 	  // ------------------------------- Scroll Animation
 	  var wow = new WOW(
 		{
@@ -999,7 +1001,7 @@ jQuery(window).on('resize',function () {
 		}
 	  );
 	  wow.init();
-  
+
 	  // ------------------------------------- Fancybox
 	  var fancy = $(".fancybox");
 	  if (fancy.length) {
@@ -1018,9 +1020,9 @@ jQuery(window).on('resize',function () {
 		  transitionEffect: "zoom-in-out",
 		});
 	  }
-  
-  
-  
+
+
+
 	  // ----------------------------- isotop gallery
 	  if ($("#isotop-gallery-wrapper").length) {
 		var $grid = $('#isotop-gallery-wrapper').isotope({
@@ -1031,15 +1033,15 @@ jQuery(window).on('resize',function () {
 			// use element for option
 			columnWidth: '.grid-sizer'
 		  }
-  
+
 		});
-  
+
 		// filter items on button click
 		$('.isotop-menu-wrapper').on('click', 'li', function () {
 		  var filterValue = $(this).attr('data-filter');
 		  $grid.isotope({ filter: filterValue });
 		});
-  
+
 		// change is-checked class on buttons
 		$('.isotop-menu-wrapper').each(function (i, buttonGroup) {
 		  var $buttonGroup = $(buttonGroup);
@@ -1049,22 +1051,22 @@ jQuery(window).on('resize',function () {
 		  });
 		});
 	  }
-  
-  
+
+
 	});  //End On Load Function
-  
+
 	// Price Slider
 	if ($(".salary-slider").length) {
 	  const rangeInput = document.querySelectorAll(".range-input input"),
 		priceInput = document.querySelectorAll(".price-input input"),
 		range = document.querySelector(".slider .progress");
 	  let priceGap = 10;
-  
+
 	  priceInput.forEach((input) => {
 		input.addEventListener("input", (e) => {
 		  let minPrice = parseInt(priceInput[0].value),
 			maxPrice = parseInt(priceInput[1].value);
-  
+
 		  if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
 			if (e.target.className === "input-min") {
 			  rangeInput[0].value = minPrice;
@@ -1076,12 +1078,12 @@ jQuery(window).on('resize',function () {
 		  }
 		});
 	  });
-  
+
 	  rangeInput.forEach((input) => {
 		input.addEventListener("input", (e) => {
 		  let minVal = parseInt(rangeInput[0].value),
 			maxVal = parseInt(rangeInput[1].value);
-  
+
 		  if (maxVal - minVal < priceGap) {
 			if (e.target.className === "range-min") {
 			  rangeInput[0].value = maxVal - priceGap;
@@ -1097,22 +1099,22 @@ jQuery(window).on('resize',function () {
 		});
 	  });
 	}
-  
+
   })(jQuery);
-  
-  
+
+
   /*<![CDATA[*/
   var TW_box = document.querySelector("#TW_box"), Cookie_btn = document.querySelector("#Cookie_btn"), ckErrMes = "Cookie can't be set! Please unblock this site from the cookie setting of your browser."; if (null != TW_box) { Cookie_btn.onclick = () => { document.cookie = "CookieConsentByFineshop=Accepted; max-age=2592000; path=/", document.cookie ? TW_box.classList.add("acptd") : alert(ckErrMes) }; let e = document.cookie.indexOf("CookieConsentByFineshop=Accepted"); -1 != e ? TW_box.classList.add("TWhide") : TW_box.classList.remove("TWhide") }
   /*]]>*/
-  
+
   let tabs = document.querySelector(".tabs");
   let tabHeader = tabs?.querySelector(".tab-header");
-  let tabHeaderElements = tabs.querySelectorAll(".tab-header > div");
-  let tabBody = tabs.querySelector(".tab-body");
-  let tabBodyElements = tabs.querySelectorAll(".tab-body > div");
-  let tabIndicator = tabs.querySelector(".tab-indicator > div");
-  
-  for (let i = 0; i < tabHeaderElements.length; i++) {
+  let tabHeaderElements = tabs?.querySelectorAll(".tab-header > div");
+  let tabBody = tabs?.querySelector(".tab-body");
+  let tabBodyElements = tabs?.querySelectorAll(".tab-body > div");
+  let tabIndicator = tabs?.querySelector(".tab-indicator > div");
+
+  for (let i = 0; i < tabHeaderElements?.length; i++) {
 	tabHeaderElements[i].addEventListener("click", function () {
 	  tabHeader.querySelector(".active").classList.remove("active");
 	  tabHeaderElements[i].classList.add("active");
@@ -1121,72 +1123,72 @@ jQuery(window).on('resize',function () {
 	  tabIndicator.style.left = `${i * 25}%`;
 	});
   }
-  
+
   function activeTabs() {
 	let tabElement = $(".tabs");
 	tabElement.toggleClass("tab-active");
 	let arrow = $(".arrow-icon");
 	arrow.toggleClass("arrow-icon-up");
   }
-  
-  
+
+
   function fbs_click() {
 	var pageLink = window.location.href;
 	var pageTitle = String(document.title).replace(/\&/g, '%26');
 	window.open(`http://www.facebook.com/sharer.php?u=${pageLink}&quote=${pageTitle}`, 'sharer', 'toolbar=0,status=0,width=626,height=436');
 	return false;
   }
-  
+
   function tbs_click() {
 	var pageLink = window.location.href;
 	var pageTitle = String(document.title).replace(/\&/g, '%26');
 	window.open(`https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageLink}`, 'sharer', 'toolbar=0,status=0,width=626,height=436');
 	return false;
   }
-  
+
   function lbs_click() {
 	var pageLink = window.location.href;
 	var pageTitle = String(document.title).replace(/\&/g, '%26');
 	window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageLink}`, 'sharer', 'toolbar=0,status=0,width=626,height=436');
 	return false;
   }
-  
+
   function pbs_click() {
 	var pageLink = window.location.href;
 	var pageTitle = String(document.title).replace(/\&/g, '%26');
 	window.open(`https://www.pinterest.com/pin/create/button/?url=${pageLink}&description=${pageTitle}`, 'sharer', 'toolbar=0,status=0,width=626,height=436');
 	return false;
   }
-  
+
   function sha_click() {
 	var pageLink = window.location.href;
 	navigator.clipboard.writeText(pageLink);
 	return false;
   }
-  
-  
-	
+
+
+
   // Add row
   function addRow(e) {
 	const contactRows = document.getElementById("contact-rows");
-  
+
 	if (e.target.closest(".add-row")) {
 	  const currentRows = contactRows.querySelectorAll(".row");
 	  const lastRow = currentRows[currentRows.length - 1];
-  
+
 	  // Remove the "Add" button from all rows except the last one
 	  currentRows.forEach((row) => {
 		const addButton = row.querySelector(".add-row");
 		if (addButton) addButton.remove();
 	  });
-  
+
 	  // Clone the last row
 	  const newRow = lastRow.cloneNode(true);
-  
+
 	  // Clear inputs in the new row
 	  newRow.querySelectorAll("input").forEach((input) => (input.value = ""));
 	  newRow.querySelectorAll("select").forEach((select) => (select.value = select.options[0].value));
-  
+
 	  // Add the "Add" button back to the new last row
 	  const newAddButton = document.createElement("a");
 	  newAddButton.href = "javascript:void(0)";
@@ -1195,13 +1197,13 @@ jQuery(window).on('resize',function () {
 	  newAddButton.setAttribute("onclick", "addRow(event)");
 	  const lastCol = newRow.querySelector(".col-md-2:last-child");
 	  lastCol.appendChild(newAddButton);
-  
+
 	  // Append the new row
 	  contactRows.appendChild(newRow);
 	}
   }
-  
-  
+
+
   // Remove row
   function removeRow(e) {
 	const contactRows = document.getElementById("contact-rows");
@@ -1209,19 +1211,19 @@ jQuery(window).on('resize',function () {
 	  const row = e.target.closest(".row");
 	  if (contactRows.children.length > 1) {
 		row.remove();
-  
+
 		// Ensure only the last row has the "Add" button
 		const currentRows = contactRows.querySelectorAll(".row");
 		const lastRow = currentRows[currentRows.length - 1];
 		const hasAddButton = lastRow.querySelector(".add-row");
-  
+
 		if (!hasAddButton) {
 		  const newAddButton = document.createElement("a");
 		  newAddButton.href = "javascript:void(0)";
 		  newAddButton.className = "dash-btn-one add-row";
 		  newAddButton.innerHTML = '<i class="bi bi-plus"></i>Add';
 		  newAddButton.setAttribute("onclick", "addRow(event)");
-		  
+
 		  const lastCol = lastRow.querySelector(".col-md-2:last-child");
 		  lastCol.appendChild(newAddButton);
 		}
@@ -1230,26 +1232,26 @@ jQuery(window).on('resize',function () {
 	  }
 	}
   }
-  
-  
-  
+
+
+
   function addRowAchievement(event) {
 	const contactRows = document.getElementById("achievement-rows");
 	const currentRow = event.target.closest(".row");
-	
+
 	// Remove all "Add" buttons except for the last row
 	const rows = contactRows.querySelectorAll(".row");
 	rows.forEach((row) => {
 	  const addButton = row.querySelector(".add-row");
 	  if (addButton) addButton.remove();
 	});
-  
+
 	// Clone the current row
 	const newRow = currentRow.cloneNode(true);
-  
+
 	// Clear inputs in the new row
 	newRow.querySelectorAll("input").forEach((input) => (input.value = ""));
-  
+
 	// Add a new "Add" button to the last column
 	const addButtonContainer = newRow.querySelector(".col-md-2:last-child");
 	const newAddButton = document.createElement("a");
@@ -1258,23 +1260,23 @@ jQuery(window).on('resize',function () {
 	newAddButton.innerHTML = '<i class="bi bi-plus"></i>Add';
 	newAddButton.setAttribute("onclick", "addRowAchievement(event)");
 	addButtonContainer.appendChild(newAddButton);
-  
+
 	// Append the new row
 	contactRows.appendChild(newRow);
   }
-  
+
   function removeRowAchievement(event) {
 	const contactRows = document.getElementById("achievement-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	if (contactRows.children.length > 1) {
 	  currentRow.remove();
-  
+
 	  // Ensure the last row has an "Add" button
 	  const rows = contactRows.querySelectorAll(".row");
 	  const lastRow = rows[rows.length - 1];
 	  const hasAddButton = lastRow.querySelector(".add-row");
-	  
+
 	  if (!hasAddButton) {
 		const addButtonContainer = lastRow.querySelector(".col-md-2:last-child");
 		const newAddButton = document.createElement("a");
@@ -1288,25 +1290,25 @@ jQuery(window).on('resize',function () {
 	  alert("At least one row is required!");
 	}
   }
-  
-  
+
+
   function addRowNotes(event) {
 	const noteRows = document.getElementById("note-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	// Remove all "Add" buttons except for the last row
 	const rows = noteRows.querySelectorAll(".row");
 	rows.forEach((row) => {
 	  const addButton = row.querySelector(".add-row");
 	  if (addButton) addButton.remove();
 	});
-  
+
 	// Clone the current row
 	const newRow = currentRow.cloneNode(true);
-  
+
 	// Clear inputs in the new row
 	newRow.querySelectorAll("input").forEach((input) => (input.value = ""));
-  
+
 	// Add a new "Add" button to the last column
 	const addButtonContainer = newRow.querySelector(".col-md-2:last-child");
 	const newAddButton = document.createElement("a");
@@ -1315,23 +1317,23 @@ jQuery(window).on('resize',function () {
 	newAddButton.innerHTML = '<i class="bi bi-plus"></i>Add';
 	newAddButton.setAttribute("onclick", "addRowNotes(event)");
 	addButtonContainer.appendChild(newAddButton);
-  
+
 	// Append the new row
 	noteRows.appendChild(newRow);
   }
-  
+
   function removeRowNotes(event) {
 	const noteRows = document.getElementById("note-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	if (noteRows.children.length > 1) {
 	  currentRow.remove();
-  
+
 	  // Ensure the last row has an "Add" button
 	  const rows = noteRows.querySelectorAll(".row");
 	  const lastRow = rows[rows.length - 1];
 	  const hasAddButton = lastRow.querySelector(".add-row");
-  
+
 	  if (!hasAddButton) {
 		const addButtonContainer = lastRow.querySelector(".col-md-2:last-child");
 		const newAddButton = document.createElement("a");
@@ -1345,27 +1347,27 @@ jQuery(window).on('resize',function () {
 	  alert("At least one row is required!");
 	}
   }
-  
-  
+
+
   function addJobExperienceRow(event) {
 	const jobExperienceRows = document.getElementById("job-experience-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	// Remove all "Add" buttons except for the last row
 	const rows = jobExperienceRows.querySelectorAll(".row");
 	rows.forEach((row) => {
 	  const addButton = row.querySelector(".add-row");
 	  if (addButton) addButton.remove();
 	});
-  
+
 	// Clone the current row
 	const newRow = currentRow.cloneNode(true);
-  
+
 	// Clear inputs and textareas in the new row
 	newRow.querySelectorAll("input").forEach((input) => (input.value = ""));
 	newRow.querySelectorAll("select").forEach((select) => (select.value = select.options[0].value));
 	newRow.querySelectorAll("textarea").forEach((textarea) => (textarea.value = ""));
-  
+
 	// Add a new "Add" button to the last column
 	const addButtonContainer = newRow.querySelector(".col-md-2:last-child");
 	const newAddButton = document.createElement("a");
@@ -1374,23 +1376,23 @@ jQuery(window).on('resize',function () {
 	newAddButton.innerHTML = '<i class="bi bi-plus"></i>Add';
 	newAddButton.setAttribute("onclick", "addJobExperienceRow(event)");
 	addButtonContainer.appendChild(newAddButton);
-  
+
 	// Append the new row
 	jobExperienceRows.appendChild(newRow);
   }
-  
+
   function removeJobExperienceRow(event) {
 	const jobExperienceRows = document.getElementById("job-experience-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	if (jobExperienceRows.children.length > 1) {
 	  currentRow.remove();
-  
+
 	  // Ensure the last row has an "Add" button
 	  const rows = jobExperienceRows.querySelectorAll(".row");
 	  const lastRow = rows[rows.length - 1];
 	  const hasAddButton = lastRow.querySelector(".add-row");
-  
+
 	  if (!hasAddButton) {
 		const addButtonContainer = lastRow.querySelector(".col-md-2:last-child");
 		const newAddButton = document.createElement("a");
@@ -1404,26 +1406,26 @@ jQuery(window).on('resize',function () {
 	  alert("At least one row is required!");
 	}
   }
-  
-  
+
+
   function addEducationRow(event) {
 	const educationRows = document.getElementById("education-certification-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	// Remove all "Add" buttons except for the last row
 	const rows = educationRows.querySelectorAll(".row");
 	rows.forEach((row) => {
 	  const addButton = row.querySelector(".add-row");
 	  if (addButton) addButton.remove();
 	});
-  
+
 	// Clone the current row
 	const newRow = currentRow.cloneNode(true);
-  
+
 	// Clear all input and select fields in the new row
 	newRow.querySelectorAll("input").forEach((input) => (input.value = ""));
 	newRow.querySelectorAll("select").forEach((select) => (select.value = select.options[0].value));
-  
+
 	// Add a new "Add" button to the last column
 	const addButtonContainer = newRow.querySelector(".col-md-2:last-child");
 	const newAddButton = document.createElement("a");
@@ -1432,23 +1434,23 @@ jQuery(window).on('resize',function () {
 	newAddButton.innerHTML = '<i class="bi bi-plus"></i>Add';
 	newAddButton.setAttribute("onclick", "addEducationRow(event)");
 	addButtonContainer.appendChild(newAddButton);
-  
+
 	// Append the new row
 	educationRows.appendChild(newRow);
   }
-  
+
   function removeEducationRow(event) {
 	const educationRows = document.getElementById("education-certification-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	if (educationRows.children.length > 1) {
 	  currentRow.remove();
-  
+
 	  // Ensure the last row has an "Add" button
 	  const rows = educationRows.querySelectorAll(".row");
 	  const lastRow = rows[rows.length - 1];
 	  const hasAddButton = lastRow.querySelector(".add-row");
-  
+
 	  if (!hasAddButton) {
 		const addButtonContainer = lastRow.querySelector(".col-md-2:last-child");
 		const newAddButton = document.createElement("a");
@@ -1462,24 +1464,24 @@ jQuery(window).on('resize',function () {
 	  alert("At least one row is required!");
 	}
   }
-  
+
   function addCertificateRow(event) {
 	const certificateRows = document.getElementById("certificate-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	// Remove all "Add" buttons except for the last row
 	const rows = certificateRows.querySelectorAll(".row");
 	rows.forEach((row) => {
 	  const addButton = row.querySelector(".add-row");
 	  if (addButton) addButton.remove();
 	});
-  
+
 	// Clone the current row
 	const newRow = currentRow.cloneNode(true);
-  
+
 	// Clear all input fields in the new row
 	newRow.querySelectorAll("input").forEach((input) => (input.value = ""));
-  
+
 	// Add a new "Add" button to the last column
 	const addButtonContainer = newRow.querySelector(".col-md-2:last-child");
 	const newAddButton = document.createElement("a");
@@ -1488,23 +1490,23 @@ jQuery(window).on('resize',function () {
 	newAddButton.innerHTML = '<i class="bi bi-plus"></i>Add';
 	newAddButton.setAttribute("onclick", "addCertificateRow(event)");
 	addButtonContainer.appendChild(newAddButton);
-  
+
 	// Append the new row
 	certificateRows.appendChild(newRow);
   }
-  
+
   function removeCertificateRow(event) {
 	const certificateRows = document.getElementById("certificate-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	if (certificateRows.children.length > 1) {
 	  currentRow.remove();
-  
+
 	  // Ensure the last row has an "Add" button
 	  const rows = certificateRows.querySelectorAll(".row");
 	  const lastRow = rows[rows.length - 1];
 	  const hasAddButton = lastRow.querySelector(".add-row");
-  
+
 	  if (!hasAddButton) {
 		const addButtonContainer = lastRow.querySelector(".col-md-2:last-child");
 		const newAddButton = document.createElement("a");
@@ -1518,26 +1520,26 @@ jQuery(window).on('resize',function () {
 	  alert("At least one row is required!");
 	}
   }
-  
-  
+
+
   function addLanguageRow(event) {
 	const languageRows = document.getElementById("language-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	// Remove all "Add" buttons except for the last row
 	const rows = languageRows.querySelectorAll(".row");
 	rows.forEach((row) => {
 	  const addButton = row.querySelector(".add-row");
 	  if (addButton) addButton.remove();
 	});
-  
+
 	// Clone the current row
 	const newRow = currentRow.cloneNode(true);
-  
+
 	// Clear all input and select fields in the new row
 	newRow.querySelectorAll("input").forEach((input) => (input.value = ""));
 	newRow.querySelectorAll("select").forEach((select) => (select.value = select.options[0].value));
-  
+
 	// Add a new "Add" button to the last column
 	const addButtonContainer = newRow.querySelector(".col-md-2:last-child");
 	const newAddButton = document.createElement("a");
@@ -1546,23 +1548,23 @@ jQuery(window).on('resize',function () {
 	newAddButton.innerHTML = '<i class="bi bi-plus"></i>Add';
 	newAddButton.setAttribute("onclick", "addLanguageRow(event)");
 	addButtonContainer.appendChild(newAddButton);
-  
+
 	// Append the new row
 	languageRows.appendChild(newRow);
   }
-  
+
   function removeLanguageRow(event) {
 	const languageRows = document.getElementById("language-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	if (languageRows.children.length > 1) {
 	  currentRow.remove();
-  
+
 	  // Ensure the last row has an "Add" button
 	  const rows = languageRows.querySelectorAll(".row");
 	  const lastRow = rows[rows.length - 1];
 	  const hasAddButton = lastRow.querySelector(".add-row");
-  
+
 	  if (!hasAddButton) {
 		const addButtonContainer = lastRow.querySelector(".col-md-2:last-child");
 		const newAddButton = document.createElement("a");
@@ -1576,25 +1578,25 @@ jQuery(window).on('resize',function () {
 	  alert("At least one row is required!");
 	}
   }
-  
+
   function addSkillRow(event) {
 	const skillRows = document.getElementById("skill-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	// Remove all "Add" buttons except for the last row
 	const rows = skillRows.querySelectorAll(".row");
 	rows.forEach((row) => {
 	  const addButton = row.querySelector(".add-row");
 	  if (addButton) addButton.remove();
 	});
-  
+
 	// Clone the current row
 	const newRow = currentRow.cloneNode(true);
-  
+
 	// Clear all input and select fields in the new row
 	newRow.querySelectorAll("input").forEach((input) => (input.value = ""));
 	newRow.querySelectorAll("select").forEach((select) => (select.value = select.options[0].value));
-  
+
 	// Add a new "Add" button to the last column
 	const addButtonContainer = newRow.querySelector(".col-md-2:last-child");
 	const newAddButton = document.createElement("a");
@@ -1603,23 +1605,23 @@ jQuery(window).on('resize',function () {
 	newAddButton.innerHTML = '<i class="bi bi-plus"></i>Add';
 	newAddButton.setAttribute("onclick", "addSkillRow(event)");
 	addButtonContainer.appendChild(newAddButton);
-  
+
 	// Append the new row
 	skillRows.appendChild(newRow);
   }
-  
+
   function removeSkillRow(event) {
 	const skillRows = document.getElementById("skill-rows");
 	const currentRow = event.target.closest(".row");
-  
+
 	if (skillRows.children.length > 1) {
 	  currentRow.remove();
-  
+
 	  // Ensure the last row has an "Add" button
 	  const rows = skillRows.querySelectorAll(".row");
 	  const lastRow = rows[rows.length - 1];
 	  const hasAddButton = lastRow.querySelector(".add-row");
-  
+
 	  if (!hasAddButton) {
 		const addButtonContainer = lastRow.querySelector(".col-md-2:last-child");
 		const newAddButton = document.createElement("a");
@@ -1633,4 +1635,3 @@ jQuery(window).on('resize',function () {
 	  alert("At least one row is required!");
 	}
   }
-  

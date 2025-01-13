@@ -2,13 +2,14 @@
 	Template Name 	 : Jobick
 	Author			 : FNRCO-Jobs
 	Author Portfolio : https://themeforest.net/user/FNRCO-Jobss/portfolio
-	
+
 **/
 
 /* JavaScript Document */
 jQuery(window).on('load', function() {
     'use strict';
-	
+
+
 	// Recent Blog
 	if(jQuery('.recent-blog1').length > 0){
 		var swiper = new Swiper('.recent-blog1',{
@@ -37,7 +38,7 @@ jQuery(window).on('load', function() {
 			}
 		});
 	}
-	
+
 	// Clients Swiper
 	if(jQuery('.clients-swiper').length > 0){
 		var swiper5 = new Swiper('.clients-swiper', {
@@ -72,9 +73,10 @@ jQuery(window).on('load', function() {
 			}
 		});
 	}
-	
+
 	// Blog Swiper
 	if(jQuery('.blog-swiper-1').length > 0){
+
 		var swiper5 = new Swiper('.blog-swiper-1', {
 			slidesPerView: 3,
 			spaceBetween: 30,
@@ -100,6 +102,6 @@ jQuery(window).on('load', function() {
 			}
 		});
 	}
-	
+
 });
 /* Document .ready END */

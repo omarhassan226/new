@@ -54,17 +54,16 @@
               }
             ],
             "styles": [
-              "src/skin-1.css",
               "src/styles.css",
-              "./public/assets/vendor/animate/animate.css"
+              "./public/assets/css/skin-1.css",
+              "./public/assets/vendor/animate/animate.css",
+              "./public/assets/vendor/animate/animate.css",
+              "./public/assets/vendor/magnific-popup/magnific-popup.css",
+              "./public/assets/vendor/swiper/swiper-bundle.min.css",
+              "./public/assets/vendor/switcher/switcher.css",
+              "./public/assets/vendor/rangeslider/rangeslider.css"
             ],
-            "scripts": [
-              "./public/assets/js/custom.js",
-              "./public/assets/js/jquery.min.js",
-              "./public/assets/js/anm.js",
-              "./public/assets/js/dz.ajax.js",
-              "./public/assets/js/dz.carousel.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

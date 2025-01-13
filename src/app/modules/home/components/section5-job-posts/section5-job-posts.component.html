@@ -1,14 +1,12 @@
 <section class="content-inner overflow-hidden position-relative bg-light">
   <div class="container">
-    <div class="section-head text-center">
-      <h6 class="text wow fadeInUp" data-wow-delay="0.6s">Last Jobs Post</h6>
-      <h2 class="title wow fadeInUp" data-wow-delay="0.8s">
-        Find Your Career You Deserve It
-      </h2>
-    </div>
+    <app-header [title]="title" [header]="header"></app-header>
     <div class="row">
-      <div class="col-xl-4 col-md-6">
-        <div class="job-bx style-1 wow fadeInUp" data-wow-delay="1.0s">
+      <app-jobs-card
+        *ngFor="let item of items"
+        class="col-xl-4 col-md-6"
+      ></app-jobs-card>
+      <!-- <div class="job-bx style-1 wow fadeInUp" data-wow-delay="1.0s">
           <div class="d-flex m-b25 justify-content-between">
             <span class="media">
               <img src="assets/images/company-logo/pic1.png" alt="image" />
@@ -34,9 +32,8 @@
               ><i class="fa-solid fa-chevron-right"></i
             ></a>
           </div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-md-6">
+        </div> -->
+      <!-- <div class="col-xl-4 col-md-6">
         <div class="job-bx style-1 wow fadeInUp" data-wow-delay="1.2s">
           <div class="d-flex m-b25 justify-content-between">
             <span class="media">
@@ -180,7 +177,7 @@
             ></a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

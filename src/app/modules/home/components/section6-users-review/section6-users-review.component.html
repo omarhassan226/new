@@ -1,16 +1,13 @@
 <section class="content-inner-1 overflow-hidden position-relative bg-white">
   <div class="container">
-    <div class="section-head text-center">
-      <h6 class="text wow fadeInUp" data-wow-delay="0.6s">
-        Users Testimonials
-      </h6>
-      <h2 class="title wow fadeInUp" data-wow-delay="0.8s">
-        What Users Say About Us.
-      </h2>
-    </div>
+    <app-header [title]="title" [header]="header"></app-header>
     <div class="swiper-container blog-swiper-1 overflow-hidden">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <app-user-review-card
+          class="swiper-slide"
+          *ngFor="let item of userReview"
+        ></app-user-review-card>
+        <!-- <div class="swiper-slide">
           <div
             class="dz-card blog-grid style-2 bg-light wow fadeInUp"
             data-wow-delay="1.0s"
@@ -144,7 +141,7 @@
               </svg>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -1,0 +1,192 @@
+<div class="dz-bnr-inr-entry">
+  <h1 style="margin-top: 10px">Jobs</h1>
+  <!-- Breadcrumb Row -->
+  <nav aria-label="breadcrumb" class="breadcrumb-row m-t15">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Jobs</li>
+    </ul>
+  </nav>
+  <!-- Breadcrumb Row End -->
+  <p class="text text-white wow fadeInUp font-w500" data-wow-delay="0.8s">
+    Type your keywork, then click search to find your perfect job.
+  </p>
+  <div class="bnr-search-bar wow fadeInUp" data-wow-delay="1.0s">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-xl-9 col-lg-8 col-md-9 col-sm-12">
+        <div class="row center-line">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="search-bar">
+              <span>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+              <div class="icon-content w-100">
+                <input
+                  name="dzEmail"
+                  required="required"
+                  class="form-control"
+                  placeholder="Job Title, Keywords..."
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="search-bar">
+              <span>
+                <i class="fa-solid fa-location-dot"></i>
+              </span>
+              <div class="icon-content w-100">
+                <input
+                  name="dzEmail"
+                  required="required"
+                  class="form-control"
+                  placeholder="City Or Postcode"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-xl-3 col-lg-4 col-md-3 col-sm-12 text-lg-end text-md-center text-center"
+      >
+        <a class="btn btn-primary w-100" href="javascript:void(0);"
+          >Find Jobs</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="text-center my-3">
+    <p
+      class="apply-btn text-center tran3s"
+      style="
+        color: #fff;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+      (click)="activeTabs()"
+    >
+      Advanced Search
+      <svg
+        style="height: 20px"
+        class="arrow-icon"
+        fill="#fff"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        <path
+          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+        />
+      </svg>
+    </p>
+  </div>
+
+  <div class="tabs" #tabs>
+    <div class="title" style="color: #fff !important">Search Jobs by</div>
+    <div class="tab-header" #tabHeader>
+      <div class="active">Location</div>
+      <div>Sector</div>
+      <div>Experience</div>
+    </div>
+    <div class="tab-indicator" #tabIndicator>
+      <div></div>
+    </div>
+    <div class="tab-body" #tabBody>
+      <div class="active">
+        <div>
+          <ul
+            class="active-ul-media"
+            style="
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              flex-wrap: wrap;
+              row-gap: 2px;
+            "
+          >
+            <li class="filter-selector">
+              <span class="name-selector">Egypt</span>
+              <span class="count-selector">(122)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">USA</span>
+              <span class="count-selector">(455)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">UK</span>
+              <span class="count-selector">(0)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">UAE</span>
+              <span class="count-selector">(577)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">Canada</span>
+              <span class="count-selector">(85)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">Australia</span>
+              <span class="count-selector">(21)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">Germany</span>
+              <span class="count-selector">(52)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">France</span>
+              <span class="count-selector">(7)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">Spain</span>
+              <span class="count-selector">(17722)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">Italy</span>
+              <span class="count-selector">(12552)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">Netherlands</span>
+              <span class="count-selector">(52)</span>
+            </li>
+            <li class="filter-selector">
+              <span class="name-selector">Switzerland</span>
+              <span class="count-selector">(10)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <p>ibrahim</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta autem
+          ex accusantium debitis sapiente reiciendis iusto placeat voluptatum,
+          deleniti molestiae amet sequi nisi consectetur saepe maiores inventore
+          non at nostrum.
+        </p>
+      </div>
+
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta autem
+          ex accusantium debitis sapiente reiciendis iusto placeat voluptatum,
+          deleniti molestiae amet sequi nisi consectetur saepe maiores inventore
+          non at nostrum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta autem
+          ex accusantium debitis sapiente reiciendis iusto placeat voluptatum,
+          deleniti molestiae amet sequi nisi consectetur saepe maiores inventore
+          non at nostrum.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
