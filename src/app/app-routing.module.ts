@@ -33,6 +33,34 @@ const routes: Routes = [
         (m) => m.LoginPageModule
       ),
   },
+  {
+    path: 'blog-grid',
+    loadChildren: () =>
+      import('../app/modules/blog-grid/blog-grid.module').then(
+        (m) => m.BlogGridModule
+      ),
+  },
+  {
+    path: 'blog-details',
+    loadChildren: () =>
+      import('../app/modules/blog-details/blog-details.module').then(
+        (m) => m.BlogDetailsModule
+      ),
+  },
+  {
+    path: 'contact-us',
+    loadChildren: () =>
+      import('../app/modules/contact-us/contact-us.module').then(
+        (m) => m.ContactUsModule
+      ),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('../app/modules/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 

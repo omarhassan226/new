@@ -18,7 +18,11 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event) => {
       const currentRoute = this.router.url;
 
-      if (currentRoute.includes('login') || currentRoute.includes('register')) {
+      if (
+        currentRoute.includes('login') ||
+        currentRoute.includes('register') ||
+        currentRoute.includes('dashboard')
+      ) {
         this.showNavbarAndFooter = false;
       } else {
         this.showNavbarAndFooter = true;

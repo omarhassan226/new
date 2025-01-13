@@ -10,6 +10,9 @@ import { JobsModule } from './modules/jobs/jobs.module';
 import { JobDetailsModule } from './modules/job-details/job-details.module';
 import { JobDetailsRoutingModule } from './modules/job-details/job-details-routing.module';
 import { JobsRoutingModule } from './modules/jobs/jobs-routing.module';
+import { BlogGridModule } from './modules/blog-grid/blog-grid.module';
+import { BlogGridRoutingModule } from './modules/blog-grid/blog-grid-routing.module';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [AppComponent, HeaderNavbarComponent, Section8FooterComponent],
@@ -21,6 +24,9 @@ import { JobsRoutingModule } from './modules/jobs/jobs-routing.module';
     JobDetailsRoutingModule,
     JobsModule,
     JobDetailsModule,
+    BlogGridModule,
+    BlogGridRoutingModule,
+    LazyLoadImageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

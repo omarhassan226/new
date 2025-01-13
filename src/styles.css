@@ -48,9 +48,9 @@
   --headings-font-weight3: 300;
 }
 
-.content-down{
+/* .content-down{
   margin-top: 106px;
-}
+} */
 
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -16806,7 +16806,7 @@ section {
 }
 
 .header-transparent {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;

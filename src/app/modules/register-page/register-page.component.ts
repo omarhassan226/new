@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterPageComponent {
   router = inject(Router);
   navigateToExternalUrl(): void {
-    this.router.navigate(['dashboard/candidate-dashboard-index.html']);
+    this.router.navigate(['dashboard/candidate-dashboard-index']);
   }
 
   navigateToLogin(): void {

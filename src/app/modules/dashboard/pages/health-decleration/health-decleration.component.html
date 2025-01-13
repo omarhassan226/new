@@ -1,0 +1,345 @@
+<div class="dashboard-body">
+  <div class="position-relative">
+      <!-- ************************ Header **************************** -->
+      <header class="dashboard-header">
+          <div class="d-flex align-items-center justify-content-end">
+              <button class="dash-mobile-nav-toggler d-block d-md-none me-auto">
+                  <span></span>
+              </button>
+              <div class="profile-notification ms-2 ms-md-5 me-4">
+                  <button class="noti-btn dropdown-toggle" type="button" id="notification-dropdown"
+                      data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                      <img src="../images/lazy.svg" data-src="../images/icon/icon_11.svg" alt=""
+                          class="lazy-img" />
+                      <div class="badge-pill"></div>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="notification-dropdown">
+                      <li>
+                          <h4>Notification</h4>
+                          <ul class="style-none notify-list">
+                              <li class="d-flex align-items-center unread">
+                                  <img src="../images/lazy.svg" data-src="images/icon/icon_36.svg" alt=""
+                                      class="lazy-img icon" />
+                                  <div class="flex-fill ps-2">
+                                      <h6>You have 3 new mails</h6>
+                                      <span class="time">3 hours ago</span>
+                                  </div>
+                              </li>
+                              <li class="d-flex align-items-center">
+                                  <img src="../images/lazy.svg" data-src="images/icon/icon_37.svg" alt=""
+                                      class="lazy-img icon" />
+                                  <div class="flex-fill ps-2">
+                                      <h6>Your job post has been approved</h6>
+                                      <span class="time">1 day ago</span>
+                                  </div>
+                              </li>
+                              <li class="d-flex align-items-center unread">
+                                  <img src="../images/lazy.svg" data-src="images/icon/icon_38.svg" alt=""
+                                      class="lazy-img icon" />
+                                  <div class="flex-fill ps-2">
+                                      <h6>Your meeting is cancelled</h6>
+                                      <span class="time">3 days ago</span>
+                                  </div>
+                              </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </header>
+      <!-- End Header -->
+
+      <h2 class="main-title">Health Declaration</h2>
+
+      <div class="bg-white card-box border-20">
+          <h4 class="dash-title-three">United Medical Declaration Form</h4>
+          <p style="font-weight: 500;">Dear Insured: <br>
+              Please Fill out the form correctly for the purpose of pricing and to ensure that you and your
+              family receive health care services as required according to your unified policy benefit.</p>
+          <form action="#">
+              <div class="row my-5">
+                  <div class="col-lg-4">
+                      <div class="dash-input-wrapper mb-20">
+                          <label for="">Type</label>
+                          <select class="nice-select" disabled>
+                              <option>New</option>
+                              <option>Addition</option>
+                          </select>
+                      </div>
+
+                      <!-- /.dash-input-wrapper -->
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="dash-input-wrapper mb-20">
+                          <label for="">Entity Name</label>
+                          <input type="text" placeholder="Kabir" disabled/>
+                      </div>
+                      <!-- /.dash-input-wrapper -->
+                  </div>
+                  <div class="col-4">
+                      <div class="dash-input-wrapper mb-20">
+                          <label for="">Employee Name</label>
+                          <input type="email" placeholder="rshakbair365@gmal.com" disabled/>
+                      </div>
+                      <!-- /.dash-input-wrapper -->
+                  </div>
+                  <div class="col-4">
+                      <div class="dash-input-wrapper mb-20">
+                          <label for="">ID Number</label>
+                          <input type="text" placeholder="515158918" disabled/>
+                      </div>
+                      <!-- /.dash-input-wrapper -->
+                  </div>
+                  <div class="col-4">
+                      <div class="dash-input-wrapper mb-20">
+                          <label for="">Mobile Number</label>
+                          <input type="tel" placeholder="+810 321 889 021" disabled/>
+                      </div>
+                      <!-- /.dash-input-wrapper -->
+                  </div>
+                  <div class="col-4">
+                      <div class="dash-input-wrapper mb-20">
+                          <label for="">Nationality</label>
+                          <input type="text" placeholder="Egyptian" disabled/>
+                      </div>
+                      <!-- /.dash-input-wrapper -->
+                  </div>
+                  <div class="col-4">
+                      <div class="dash-input-wrapper mb-20">
+                          <label for="">Marital Status</label>
+                          <select class="nice-select" disabled>
+                              <option>Married</option>
+                              <option>Single</option>
+                          </select>
+
+                      </div>
+                      <!-- /.dash-input-wrapper -->
+                  </div>
+                  <div class="col-4">
+                      <div class="dash-input-wrapper mb-20">
+                          <label for="">Gender</label>
+                          <select class="nice-select" disabled>
+                              <option>Male</option>
+                              <option>Female</option>
+                          </select>
+                      </div>
+                      <!-- /.dash-input-wrapper -->
+                  </div>
+                  <div class="col-4">
+                      <div class="dash-input-wrapper mb-20">
+                          <label for="">Policy No. / CR</label>
+                          <input type="text" placeholder="" disabled/>
+                      </div>
+                      <!-- /.dash-input-wrapper -->
+                  </div>
+              </div>
+
+              <div class="col-12">
+                  <hr>
+              </div>
+              <div class="col-12 my-5">
+                  <p style="margin: 10px 0 ; font-weight: 500 ; color: rgb(206, 52, 52);">Please declare any of below cases by marking
+                      under the word ( Yes )</p>
+                  <div class="row justify-content-between align-items-center">
+                      <div class="col-12">
+                          <table class="table table-striped">
+                              <tr>
+                                  <td><span style="color: rgb(206, 52, 52);">1)</span> Any hospital
+                                      admission during the last 12 months.</td>
+                                  <td>
+                                      <div class="d-flex align-items-center">
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="1" value="1" id="11" />
+                                              <label for="11">Yes</label>
+                                          </span>
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="1" value="2" id="22" />
+                                              <label for="22">No</label>
+                                          </span>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <!-- //////////////////////////////// -->
+                              <tr>
+                                  <td> <span style="color: rgb(206, 52, 52);">2)</span> Do you have chronic
+                                      diseases limited to: Benign Tumor Cancer, Heart Diseases, Chronic
+                                      Hepatitis,
+                                      Gallstones, Kidney Failure,
+                                      Urinary Tract Stones, Thyroid Goiter, Cysts, Fibroid Uterus, Hernias,
+                                      Autoimmune Diseases or Multiple
+                                      Sclerosis?</td>
+                                  <td>
+                                      <div class="d-flex  align-items-center">
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="2" value="3" id="33" />
+                                              <label for="33">Yes</label>
+                                          </span>
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="2" value="4" id="44" />
+                                              <label for="44">No</label>
+                                          </span>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <!-- //////////////////////////////// -->
+                              <tr>
+                                  <td><span style="color: rgb(206, 52, 52);">3)</span> Do you have
+                                      congenital disorder or hereditary diseases
+                                      (Diseases that affect the individual during fetal life or
+                                      diseases resulting from genetic defect or disorder or
+                                      transmitted from one generation to another)?</td>
+                                  <td>
+                                      <div class="d-flex  align-items-center">
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="3" value="5" id="55" />
+                                              <label for="55">Yes</label>
+                                          </span>
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="3" value="6" id="66" />
+                                              <label for="66">No</label>
+                                          </span>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <!-- //////////////////////////////// -->
+                              <tr>
+                                  <td><span style="color: rgb(206, 52, 52);">4)</span> Do you have
+                                      congenital disorder or hereditary diseases
+                                      (Diseases that affect the individual during fetal life or
+                                      diseases resulting from genetic defect or disorder or
+                                      transmitted from one generation to another)?</td>
+                                  <td>
+                                      <div class="d-flex  align-items-center">
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="4" value="7" id="77" />
+                                              <label for="77">Yes</label>
+                                          </span>
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="4" value="8" id="88" />
+                                              <label for="88">No</label>
+                                          </span>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <!-- //////////////////////////////// -->
+                              <tr>
+                                  <td><span style="color: rgb(206, 52, 52);">5)</span> Do you have eye
+                                      diseases limited to: Cataract,
+                                      Glaucoma, Corneal Diseases or Retinal Diseases?</td>
+                                  <td>
+                                      <div class="d-flex  align-items-center">
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="4" value="7" id="99" />
+                                              <label for="99">Yes</label>
+                                          </span>
+                                          <span style="margin: 0 10px;">
+                                              <input type="radio" name="4" value="8" id="10" />
+                                              <label for="10">No</label>
+                                          </span>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td><span style="color: rgb(206, 52, 52);">6)</span> For Pregnant
+                                      Females only
+                                      <br>
+                                      Current single pregnancy
+                                      <br>
+                                      Current single pregnancy with previous CS delivery
+                                      <br>
+                                      pregnancy multiple Current
+                                      <br>
+                                      Expected delivery date :
+                                  </td>
+                                  <td>
+                                      <div>
+                                          <span style="margin: 0 20px;">
+                                          </span>
+                                          <br>
+                                          <span style="margin: 0 20px;">
+                                              <input type="checkbox" style=" height: 16px; width: 17px; " />
+                                          </span>
+                                          <br>
+                                          <span style="margin: 0 20px;">
+                                              <input type="checkbox" style=" height: 16px; width: 17px; " />
+                                          </span>
+                                          <br>
+                                          <span style="margin: 0 20px;">
+                                              <input type="checkbox" style=" height: 16px; width: 17px; " />
+                                          </span>
+                                          <br>
+                                          <span style="margin: 0 10px;">
+                                              <input type="text"
+                                                  style=" border-radius: 10px; border: 1px solid #0000005c; padding-left: 5px;" />
+                                          </span>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <!-- //////////////////////////////// -->
+                          </table>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-12">
+                  <hr>
+              </div>
+              <div class="col-12 my-5">
+              <p style="margin: 10px 0 ; font-weight: 500 ;color: rgb(206, 52, 52);">Employee and dependents details that need to be added <br>
+                  (In case of a yes answer above, Please declare the case in the table below)</p>
+              </div>
+              <div class="row justify-content-between align-items-center">
+                  <div class="col-12">
+                      <table class="table table-striped">
+                          <thead>
+                              <tr>
+                                  <th>Employee/Dependent Name</th>
+                                  <th>Gender</th>
+                                  <th>Relation</th>
+                                  <th>ID Number</th>
+                                  <th>Weight</th>
+                                  <th>Height</th>
+                                  <th>Mobile No</th>
+                                  <th>Case</th>
+                                  <th>Provider Name</th>
+                                  <th>Actions</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>Ibarhim</td>
+                                  <td>Male</td>
+                                  <td>Self</td>
+                                  <td>123456789</td>
+                                  <td>75</td>
+                                  <td>178</td>
+                                  <td>123456789</td>
+                                  <td>Yes</td>
+                                  <td>Yes</td>
+                                  <td><button class="btn ">❌</button></td>
+                              </tr>
+                              <tr>
+                                  <td><input type="text" class="form-control" value="Ibarhim"></td>
+                                  <td><input type="text" class="form-control" value="Male"></td>
+                                  <td><input type="text" class="form-control" value="Self"></td>
+                                  <td><input type="text" class="form-control" value="123456789"></td>
+                                  <td><input type="text" class="form-control" value="75"></td>
+                                  <td><input type="text" class="form-control" value="178"></td>
+                                  <td><input type="text" class="form-control" value="123456789"></td>
+                                  <td><input type="text" class="form-control" value="Yes"></td>
+                                  <td><input type="text" class="form-control" value="Yes"></td>
+                                  <td><button class="btn ">➕</button></td>
+                              </tr>
+                          </tbody>
+                      </table>
+
+                  </div>
+              </div>
+          </form>
+      </div>
+      <!-- /.card-box -->
+      <div class="button-group d-flex justify-content-end align-items-center mt-30">
+          <a href="#" class="dash-cancel-btn tran3s">Cancel</a>
+          <a href="#" class="dash-btn-two tran3s ms-3">Save</a>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,370 @@
+<div id="preloader">
+  <div id="ctn-preloader" class="ctn-preloader">
+    <div class="">
+      <img
+        src="https://fnrco.com.sa/frontend/images/logo-5.png"
+        alt=""
+        class="m-auto d-block"
+        width="60"
+      />
+    </div>
+    <div class="txt-loading">
+      <span
+        data-text-preloader="F"
+        class="letters-loading"
+        style="color: #585858"
+      >
+        F
+      </span>
+      <span
+        data-text-preloader="N"
+        class="letters-loading"
+        style="color: #585858"
+      >
+        N
+      </span>
+      <span
+        data-text-preloader="R"
+        class="letters-loading"
+        style="color: #585858"
+      >
+        R
+      </span>
+      <span
+        data-text-preloader="C"
+        class="letters-loading"
+        style="color: #585858"
+      >
+        C
+      </span>
+      <span
+        data-text-preloader="O"
+        class="letters-loading"
+        style="color: #585858"
+      >
+        O
+      </span>
+    </div>
+  </div>
+</div>
+
+<!--
+=============================================
+  Dashboard Aside Menu
+==============================================
+-->
+<aside class="dash-aside-navbar">
+  <div class="position-relative">
+    <div
+      class="logo text-md-center d-md-block d-flex align-items-center justify-content-between"
+    >
+      <a href="candidate-dashboard-index.html">
+        <img src="https://fnrco.com.sa/frontend/images/logo-5.png" alt="" />
+      </a>
+      <button class="close-btn d-block d-md-none">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="user-data">
+      <div class="user-avatar online position-relative rounded-circle">
+        <img
+          src="assets/dashboard-images-all/avatar_01.jpg"
+          data-src="assets/dashboard-images-all/avatar_01.jpg"
+          alt=""
+          class="lazy-img"
+        />
+      </div>
+      <!-- /.user-avatar -->
+      <div class="user-name-data">
+        <button
+          class="user-name dropdown-toggle"
+          type="button"
+          id="profile-dropdown"
+          data-bs-toggle="dropdown"
+          data-bs-auto-close="outside"
+          aria-expanded="false"
+        >
+          Ibarhim Saleem
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="profile-dropdown">
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center"
+              href="candidate-dashboard-profile.html"
+              ><img
+                src="assets/dashboard-images-all/lazy.svg"
+                data-src="assets/dashboard-images-all/icon/icon_23.svg"
+                alt=""
+                class="lazy-img"
+              /><span class="ms-2 ps-1">Profile</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center"
+              href="candidate-dashboard-settings.html"
+              ><img
+                src="assets/dashboard-images-all/lazy.svg"
+                data-src="assets/dashboard-images-all/icon/icon_24.svg"
+                alt=""
+                class="lazy-img"
+              /><span class="ms-2 ps-1">Account Settings</span></a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="#"
+              ><img
+                src="assets/dashboard-images-all/lazy.svg"
+                data-src="assets/dashboard-images-all/icon/icon_25.svg"
+                alt=""
+                class="lazy-img"
+              /><span class="ms-2 ps-1">Job Alert</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="progress-profile">
+      <div id="circle2">
+        <div class="progress-summary-profile-circle" data-progress="60">
+          <app-profile-progress
+            [percent]="60"
+            [radius]="40"
+          ></app-profile-progress>
+
+          <span>Profile:</span>
+          <span class="progress-summary-profile-percent">60%</span>
+          <span>complete</span>
+          <div class="progress-summary-profile-completed-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.user-data -->
+    <nav class="dasboard-main-nav">
+      <ul class="style-none">
+        <li>
+          <a
+            routerLink="candidate-dashboard-index"
+            class="d-flex w-100 align-items-center active"
+          >
+            <!-- Lazy-loaded icon -->
+            <img
+              [lazyLoad]="'assets/dashboard-images-all/icon/icon_1.svg'"
+              alt="Dashboard Icon"
+              class="lazy-img"
+            />
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="candidate-dashboard-profile"
+            class="d-flex w-100 align-items-center"
+          >
+            <!-- Lazy-loaded icon -->
+            <img
+              [lazyLoad]="'assets/dashboard-images-all/icon/icon_2.svg'"
+              alt="Profile Icon"
+              class="lazy-img"
+            />
+            <span>My Profile</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="candidate-dashboard-job-offer"
+            class="d-flex w-100 align-items-center"
+          >
+            <!-- Lazy-loaded icon -->
+            <img
+              [lazyLoad]="'assets/dashboard-images-all/icon/file.svg'"
+              alt="Job Offer Icon"
+              class="lazy-img"
+            />
+            <span>Job Offer</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="candidate-dashboard-contract-details"
+            class="d-flex w-100 align-items-center"
+          >
+            <!-- Lazy-loaded icon -->
+            <img
+              [lazyLoad]="'assets/dashboard-images-all/icon/contract.svg'"
+              alt="Contract Icon"
+              class="lazy-img"
+            />
+            <span>Contracts</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="candidate-dashboard-health-declaration"
+            class="d-flex w-100 align-items-center"
+          >
+            <!-- Lazy-loaded Health Declaration Icon -->
+            <img
+              [lazyLoad]="'assets/dashboard-images-all/icon/healthcare.svg'"
+              alt="Health Declaration"
+              class="lazy-img"
+            />
+            <span>Health Declaration</span>
+          </a>
+        </li>
+
+        <!-- Visa -->
+        <li>
+          <a
+            routerLink="candidate-dashboard-visa"
+            class="d-flex w-100 align-items-center"
+          >
+            <!-- Lazy-loaded Visa Icon -->
+            <img
+              [lazyLoad]="
+                'assets/dashboard-images-all/icon/id-card-svgrepo-com.svg'
+              "
+              alt="Visa"
+              class="lazy-img"
+            />
+            <span>Visa</span>
+          </a>
+        </li>
+
+        <!-- Resume -->
+        <li>
+          <a
+            routerLink="candidate-dashboard-resume"
+            class="d-flex w-100 align-items-center"
+          >
+            <!-- Lazy-loaded Resume Icon -->
+            <img
+              [lazyLoad]="'assets/dashboard-images-all/icon/icon_3.svg'"
+              alt="Resume"
+              class="lazy-img"
+            />
+            <span>Resume</span>
+          </a>
+        </li>
+
+        <!-- Job Alert -->
+        <li>
+          <a
+            routerLink="candidate-dashboard-job-alert"
+            class="d-flex w-100 align-items-center"
+          >
+            <!-- Lazy-loaded Job Alert Icon -->
+            <img
+              [lazyLoad]="'assets/dashboard-images-all/icon/icon_5.svg'"
+              alt="Job Alert"
+              class="lazy-img"
+            />
+            <span>Job Alert</span>
+          </a>
+        </li>
+
+        <!-- Saved Job -->
+        <li>
+          <a
+            routerLink="candidate-dashboard-saved-jobs"
+            class="d-flex w-100 align-items-center"
+          >
+            <!-- Lazy-loaded Saved Job Icon -->
+            <img
+              [lazyLoad]="'assets/dashboard-images-all/icon/icon_6.svg'"
+              alt="Saved Job"
+              class="lazy-img"
+            />
+            <span>Saved Job</span>
+          </a>
+        </li>
+
+        <!-- Account Settings -->
+        <li>
+          <a
+            routerLink="candidate-dashboard-settings"
+            class="d-flex w-100 align-items-center"
+          >
+            <!-- Lazy-loaded Account Settings Icon -->
+            <img
+              [lazyLoad]="'assets/dashboard-images-all/icon/icon_7.svg'"
+              alt="Account Settings"
+              class="lazy-img"
+            />
+            <span>Account Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.dasboard-main-nav -->
+
+    <a
+      routerLink="/login-page"
+      class="d-flex w-100 align-items-center logout-btn"
+    >
+      <img
+        [lazyLoad]="'assets/dashboard-images-all/icon/icon_9.svg'"
+        alt="log-out"
+        class="lazy-img"
+      />
+      <span>Logout</span>
+    </a>
+  </div>
+</aside>
+<!-- /.dash-aside-navbar -->
+
+<!--
+=============================================
+Dashboard Body
+==============================================
+-->
+<router-outlet></router-outlet>
+<!-- /.dashboard-body -->
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+    <div class="container">
+      <div class="remove-account-popup text-center modal-content">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+        <img
+          src="assets/dashboard-images-all/lazy.svg"
+          data-src="assets/dashboard-images-all/icon/icon_22.svg"
+          alt=""
+          class="lazy-img m-auto"
+        />
+        <h2>Are you sure?</h2>
+        <p>Are you sure to delete your account? All data will be lost.</p>
+        <div
+          class="button-group d-inline-flex justify-content-center align-items-center pt-15"
+        >
+          <a href="#" class="confirm-btn fw-500 tran3s me-3">Yes</a>
+          <button
+            type="button"
+            class="btn-close fw-500 ms-3"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+      <!-- /.remove-account-popup -->
+    </div>
+  </div>
+</div>
+
+<button class="scroll-top">
+  <i class="bi bi-arrow-up-short"></i>
+</button>

@@ -61,7 +61,8 @@
               "./public/assets/vendor/magnific-popup/magnific-popup.css",
               "./public/assets/vendor/swiper/swiper-bundle.min.css",
               "./public/assets/vendor/switcher/switcher.css",
-              "./public/assets/vendor/rangeslider/rangeslider.css"
+              "./public/assets/vendor/rangeslider/rangeslider.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ],
             "scripts": []
           },
