@@ -19,6 +19,20 @@ const routes: Routes = [
         (m) => m.JobDetailsModule
       ),
   },
+  {
+    path: 'register-page',
+    loadChildren: () =>
+      import('../app/modules/register-page/register-page.module').then(
+        (m) => m.RegisterPageModule
+      ),
+  },
+  {
+    path: 'login-page',
+    loadChildren: () =>
+      import('../app/modules/login-page/login-page.module').then(
+        (m) => m.LoginPageModule
+      ),
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 

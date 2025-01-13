@@ -1,6 +1,9 @@
 <div class="page-wraper">
   <!-- Header -->
-  <header class="site-header mo-left header header-transparent">
+  <header
+    class="site-header mo-left header header-transparent"
+    *ngIf="showNavbarAndFooter"
+  >
     <!-- Main Header -->
     <app-header-navbar></app-header-navbar>
     <!-- Main Header End -->
@@ -9,6 +12,6 @@
   <router-outlet></router-outlet>
 
   <!-- Footer -->
-  <app-section8-footer></app-section8-footer>
+  <app-section8-footer *ngIf="showNavbarAndFooter"></app-section8-footer>
   <!-- Footer End -->
 </div>

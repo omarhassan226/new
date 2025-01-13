@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'Angular-candidate-portal';
 
+  showNavbarAndFooter: boolean = true;
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
   ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      const currentRoute = this.router.url;
+
+      if (currentRoute.includes('login') || currentRoute.includes('register')) {
+        this.showNavbarAndFooter = false;
+      } else {
+        this.showNavbarAndFooter = true;
+      }
+    });
   }
 }
