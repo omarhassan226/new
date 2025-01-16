@@ -76,6 +76,8 @@ jQuery(window).on('load', function() {
 
 	// Blog Swiper
 	if(jQuery('.blog-swiper-1').length > 0){
+    console.log("hello");
+
 
 		var swiper5 = new Swiper('.blog-swiper-1', {
 			slidesPerView: 3,

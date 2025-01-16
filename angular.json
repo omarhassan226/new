@@ -63,10 +63,7 @@
               "./public/assets/vendor/switcher/switcher.css",
               "./public/assets/vendor/rangeslider/rangeslider.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-              "node_modules/sweetalert2/dist/sweetalert2.min.css",
-              "node_modules/@videogular/ngx-videogular/fonts/videogular.css",
-              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "node_modules/sweetalert2/dist/sweetalert2.min.css"
             ],
             "scripts": []
           },
