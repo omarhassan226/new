@@ -17,16 +17,13 @@ export class RedSectionComponent implements AfterViewInit {
   @ViewChild('tabIndicator') tabIndicator: ElementRef | undefined;
 
   ngAfterViewInit(): void {
-    // Ensure the DOM elements are available
     if (this.tabs && this.tabHeader && this.tabBody && this.tabIndicator) {
       let tabHeaderElements =
         this.tabHeader.nativeElement.querySelectorAll('div');
       let tabBodyElements = this.tabBody.nativeElement.querySelectorAll('div');
 
-      // Adding click event listeners to each tab header element
       tabHeaderElements.forEach((element: HTMLElement, index: number) => {
         element.addEventListener('click', () => {
-          // Remove active class from all tab headers and bodies
           this.tabHeader?.nativeElement
             .querySelector('.active')
             ?.classList.remove('active');
@@ -36,6 +33,8 @@ export class RedSectionComponent implements AfterViewInit {
 
           element.classList.add('active');
           tabBodyElements[index].classList.add('active');
+          console.log(tabBodyElements[index]);
+          console.log(element);
 
           if (this.tabIndicator) {
             this.tabIndicator.nativeElement.style.left = `${index * 25}%`;

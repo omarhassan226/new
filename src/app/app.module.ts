@@ -13,9 +13,17 @@ import { JobsRoutingModule } from './modules/jobs/jobs-routing.module';
 import { BlogGridModule } from './modules/blog-grid/blog-grid.module';
 import { BlogGridRoutingModule } from './modules/blog-grid/blog-grid-routing.module';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { NotFoundPageComponent } from './global-components/not-found-page/not-found-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HeaderNavbarComponent, Section8FooterComponent],
+  declarations: [
+    AppComponent,
+    HeaderNavbarComponent,
+    Section8FooterComponent,
+    NotFoundPageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +35,8 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     BlogGridModule,
     BlogGridRoutingModule,
     LazyLoadImageModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

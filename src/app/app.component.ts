@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
       if (
         currentRoute.includes('login') ||
         currentRoute.includes('register') ||
-        currentRoute.includes('dashboard')
+        currentRoute.includes('dashboard') ||
+        currentRoute.includes('forget-password')
       ) {
         this.showNavbarAndFooter = false;
       } else {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundPageComponent } from './global-components/not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {
@@ -61,7 +62,15 @@ const routes: Routes = [
         (m) => m.DashboardModule
       ),
   },
+  {
+    path: 'forget-password',
+    loadChildren: () =>
+      import('../app/modules/forget-password/forget-password.module').then(
+        (m) => m.ForgetPasswordModule
+      ),
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', component: NotFoundPageComponent },
 ];
 
 @NgModule({

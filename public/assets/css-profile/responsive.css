@@ -1,11 +1,11 @@
 /* Responsive CSS Document */
 
-/* 
+/*
     Created on   : 04/06/2023.
     Theme Name   : FNRCO-Jobs
     Version      : 1.0.
     Developed by : (me@heloshape.com) / (www.me.heloshape.com)
-   
+
 */
 
 @media (min-width: 992px) {
@@ -20,7 +20,7 @@
 /*(min-width: 1400px)*/
 
 /*Grid xl Start*/
-@media (max-width: 1399px) { 
+@media (max-width: 1399px) {
   .category-menu {padding: 0 15px;}
   .card-style-nine {padding: 25px 15px;}
   .feedback-section-five .feedback-slider-one {margin: 0 -15px;}
@@ -65,12 +65,12 @@
   .error-page h2 {font-size: 70px;}
   .blog-meta-two .blog-title.xs {font-size: 26px;}
   .blog-details-meta .blog-heading {font-size: 46px;}
-  
+
 }
 /*(min-width: 1200px) and (max-width: 1399px)*/
 
 
-@media (min-width: 992px) and (max-width: 1399px) { 
+@media (min-width: 992px) and (max-width: 1399px) {
   .card-style-two.arrow:after {right: -70px;}
   .card-style-two.arrow:before {left: -70px;}
   .blog-section-one .explore-btn {top:16px;}
@@ -285,7 +285,7 @@
   .blog-meta-two .blog-title {font-size: 24px;}
   .inner-banner-one {padding-bottom: 80px;}
   .text-feature-three .video-post {height: 450px;}
-  
+
 }
 /*(min-width: 992px) and (max-width: 1199px)*/
 
@@ -350,7 +350,7 @@
   .feedback-section-two .shape_01,.fancy-banner-five .bg-wrapper .shape_01,
   .hero-banner-seven .screen01,.hero-banner-seven .screen02,
   .card-style-five.arrow-style:before, .card-style-five.arrow-style:after {display: none !important;}
-  
+
 }
 /*(max-width: 991px)*/
 /*Grid md Start*/
@@ -377,7 +377,7 @@
   .grid-3column .grid-sizer, .grid-3column .isotop-item {width: 50%;}
   .feedback-section-five .slider-arrows {top:30px;}
   .job-list-one .split-box1 .title {margin-bottom: 0;}
-  
+
 }
 /*(min-width: 768px) and (max-width: 991px)*/
 
@@ -386,7 +386,7 @@
 /*Grid sm Start*/
 @media (max-width: 767px) {
   .menu-style-one .job-post-btn {
-    border: none; 
+    border: none;
     margin: 10px 0;
     text-align: center;
     width: 100%;
@@ -464,7 +464,7 @@
 
 
 /* Dashboard Responsive */
-@media (max-width: 1399px) {  
+@media (max-width: 1399px) {
   .dashboard-body .dash-card-one {padding: 18px 20px 22px;}
   .dashboard-body .dash-card-one .icon {width: 50px; height: 50px; padding: 15px;}
   .dashboard-body .dash-card-one .value {font-size: 30px;}
@@ -482,7 +482,7 @@
 
 }
 
-@media (max-width: 1199px) { 
+@media (max-width: 1199px) {
   .dash-aside-navbar {padding: 20px 10px 10px;}
   .dash-aside-navbar .user-data .user-avatar {width: 55px; height: 55px; margin-top: 30px;}
   .dash-aside-navbar .user-data .user-name {font-size: 16px; margin: 12px 0 25px;}
@@ -522,17 +522,17 @@
 
 }
 
-@media (min-width: 992px) and (max-width: 1199px) { 
-  .dashboard-body .dashboard-header {right:15px; left: 275px;}
-  
-}
-
-@media (min-width: 768px) and (max-width: 991px) { 
+@media (min-width: 992px) and (max-width: 1199px) {
   .dashboard-body .dashboard-header {right:15px; left: 275px;}
 
 }
 
-@media (max-width: 991px) { 
+@media (min-width: 768px) and (max-width: 991px) {
+  .dashboard-body .dashboard-header {right:15px; left: 275px;}
+
+}
+
+@media (max-width: 991px) {
   .dashboard-body .dash-accordion-one .accordion-item .accordion-button {font-size: 14px; padding: 15px;}
   .dashboard-body .dash-accordion-one .accordion-item .accordion-body {padding: 8px 15px 0;}
   .dashboard-body .message-wrapper .open-email-container {background: #f0f5f3; margin: 20px 10px; border-radius: 10px;}
@@ -546,7 +546,7 @@
   .dashboard-body .job-list-one .action-dots {position: absolute; top:20px; right: 10px;}
   .dashboard-body .membership-plan-wrapper .column.border-left {border-left: none; border-top: 1px solid #254035;}
 }
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
   .dash-aside-navbar {transform: translateX(-100%); opacity: 0; visibility: hidden; transition: all 0.3s ease;}
   .dash-aside-navbar.show {transform: translateX(0); box-shadow: 15px 0 25px rgba(35,35,35,0.09); opacity: 1; visibility: visible;}
   .dashboard-body {margin: 0; border-radius: 0;}

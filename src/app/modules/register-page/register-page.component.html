@@ -1,63 +1,300 @@
 <div class="fix-wrapper content-down">
-  <div class="container">
+  <div class="container container-width">
     <div class="row justify-content-center">
-      <div class="col-lg-5 col-md-6">
+      <div class="col-lg-7 col-md-7 py">
         <div class="card mb-0 h-auto">
           <div class="card-body">
             <div class="text-center mb-3 logo-img">
-              <a href="index.html"
-                ><img
+              <a href="index.html">
+                <img
                   class="logo-auth light"
                   src="https://fnrco.com.sa/frontend/images/logo-5.png"
                   alt=""
-              /></a>
-              <a href="index.html"
-                ><img
+                />
+              </a>
+              <a href="index.html">
+                <img
                   class="logo-auth dark"
                   src="images/logo-full-dark.png"
                   alt=""
-              /></a>
+                />
+              </a>
             </div>
             <h4 class="text-center mb-4">Sign up your account</h4>
-            <form>
-              <div class="form-group mb-4">
-                <label class="form-label" for="username">Username</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Enter username"
-                  id="username"
-                />
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <!-- First field -->
+              <div class="first-fields-section">
+                <!-- First Name -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="first_name">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="first_name"
+                    formControlName="first_name"
+                    placeholder="Enter first name"
+                  />
+                  <div
+                    *ngIf="first_name?.invalid && first_name?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="first_name?.errors?.['required']"
+                      >First name is required.</small
+                    >
+                    <small *ngIf="first_name?.errors?.['minlength']"
+                      >First name must be at least 3 characters long.</small
+                    >
+                  </div>
+                </div>
+
+                <!-- Second Name -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="second_name"
+                    >Second Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="second_name"
+                    formControlName="second_name"
+                    placeholder="Enter second name"
+                  />
+                  <div
+                    *ngIf="second_name?.invalid && second_name?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="second_name?.errors?.['required']"
+                      >Second name is required.</small
+                    >
+                    <small *ngIf="second_name?.errors?.['minlength']"
+                      >Second name must be at least 3 characters long.</small
+                    >
+                  </div>
+                </div>
               </div>
 
+              <!-- Second field -->
+              <div class="second-fields-section">
+                <!-- Third Name -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="third_name">Third Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="third_name"
+                    formControlName="third_name"
+                    placeholder="Enter third name"
+                  />
+                  <div
+                    *ngIf="third_name?.invalid && third_name?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="third_name?.errors?.['required']"
+                      >Third name is required.</small
+                    >
+                    <small *ngIf="third_name?.errors?.['minlength']"
+                      >Third name must be at least 3 characters long.</small
+                    >
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="email">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    formControlName="email"
+                    placeholder="hello@example.com"
+                  />
+                  <div
+                    *ngIf="email?.invalid && email?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="email?.errors?.['required']"
+                      >Email is required.</small
+                    >
+                    <small *ngIf="email?.errors?.['email']"
+                      >Invalid email format.</small
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Third field -->
+              <div class="second-fields-section">
+                <!-- Phone -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="phone">Phone Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phone"
+                    formControlName="phone"
+                    placeholder="Enter phone number"
+                  />
+                  <div
+                    *ngIf="phone?.invalid && phone?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="phone?.errors?.['required']"
+                      >Phone number is required.</small
+                    >
+                    <small *ngIf="phone?.errors?.['pattern']"
+                      >Invalid phone number. Must be 10 digits.</small
+                    >
+                  </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="password">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    formControlName="password"
+                    placeholder="Enter password"
+                  />
+                  <div
+                    *ngIf="password?.invalid && password?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="password?.errors?.['required']"
+                      >Password is required.</small
+                    >
+                    <small *ngIf="password?.errors?.['minlength']"
+                      >Password must be at least 6 characters long.</small
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="third-fields-section">
+                <!-- Religion -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="religion_id">Religion</label>
+                  <select
+                    class="form-control"
+                    id="religion_id"
+                    formControlName="religion_id"
+                  >
+                    <option value="">Select Religion</option>
+                    <option value="1">Islam</option>
+                    <option value="2">Christianity</option>
+                    <option value="3">Hinduism</option>
+                    <option value="4">Other</option>
+                  </select>
+                  <div
+                    *ngIf="religion_id?.invalid && religion_id?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="religion_id?.errors?.['required']"
+                      >Religion is required.</small
+                    >
+                  </div>
+                </div>
+
+                <!-- Position -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="position">Position</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="position"
+                    formControlName="position"
+                    placeholder="Enter your position"
+                  />
+                  <div
+                    *ngIf="position?.invalid && position?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="position?.errors?.['required']"
+                      >Position is required.</small
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="forth-fields-section">
+                <!-- Nationality -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="nationality"
+                    >Nationality</label
+                  >
+                  <select
+                    class="form-control"
+                    id="nationality"
+                    formControlName="nationality"
+                  >
+                    <option value="">Select Nationality</option>
+                    <option value="1">Saudi Arabia</option>
+                    <option value="2">India</option>
+                    <option value="3">USA</option>
+                    <option value="4">Other</option>
+                  </select>
+                  <div
+                    *ngIf="nationality?.invalid && nationality?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="nationality?.errors?.['required']"
+                      >Nationality is required.</small
+                    >
+                  </div>
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group mb-4 fields-width">
+                  <label class="form-label" for="gender">Gender</label>
+                  <select
+                    class="form-control"
+                    id="gender"
+                    formControlName="gender"
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                  <div
+                    *ngIf="gender?.invalid && gender?.dirty"
+                    class="text-danger"
+                  >
+                    <small *ngIf="gender?.errors?.['required']"
+                      >Gender is required.</small
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Marital Status -->
               <div class="form-group mb-4">
-                <label class="form-label" for="email">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="hello@example.com"
-                  id="email"
-                />
-              </div>
-              <div class="mb-sm-4 mb-3 position-relative">
-                <label class="form-label" for="dlab-password">Password</label>
-                <input
-                  type="password"
-                  id="dlab-password"
-                  class="form-control"
-                  value="123456"
-                />
-                <!-- <span class="show-pass eye">
-                  <i class="fa fa-eye-slash"></i>
-                  <i class="fa fa-eye"></i>
-                </span> -->
-              </div>
-              <div class="text-center">
-                <button
-                  type="button"
-                  class="btn btn-primary btn-block w-100"
-                  (click)="navigateToExternalUrl()"
+                <label class="form-label" for="martial_status"
+                  >Marital Status</label
                 >
+                <select
+                  class="form-control"
+                  id="martial_status"
+                  formControlName="martial_status"
+                >
+                  <option value="">Select Marital Status</option>
+                  <option value="single">Single</option>
+                  <option value="married">Married</option>
+                  <option value="divorced">Divorced</option>
+                </select>
+                <div
+                  *ngIf="martial_status?.invalid && martial_status?.dirty"
+                  class="text-danger"
+                >
+                  <small *ngIf="martial_status?.errors?.['required']"
+                    >Marital status is required.</small
+                  >
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block w-100">
                   Sign up
                 </button>
               </div>

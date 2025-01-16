@@ -127,11 +127,26 @@
     <div class="progress-profile">
       <div id="circle2">
         <div class="progress-summary-profile-circle" data-progress="60">
-          <app-profile-progress
-            [percent]="60"
-            [radius]="40"
-          ></app-profile-progress>
-
+          <profile-progress percent="60" radius="40" inline-template="">
+            <svg
+              width="240"
+              height="240"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 160 160"
+              class="progress-circle"
+            >
+              <defs>
+                <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#4DB6AC" />
+                   
+                  <stop offset="100%" stop-color="#FFF59D" />
+                </linearGradient>
+              </defs>
+              <path id="background-circle" :d="dBg" />
+              <path id="foreground-circle" :d="d" />
+            </svg>
+          </profile-progress>
           <span>Profile:</span>
           <span class="progress-summary-profile-percent">60%</span>
           <span>complete</span>
@@ -151,9 +166,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-index"
-            class="d-flex w-100 align-items-center active"
+            [ngClass]="{ active: isActive('dashboard') }"
+            (click)="setActiveTab('dashboard')"
+            class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded icon -->
             <img
               [lazyLoad]="'assets/dashboard-images-all/icon/icon_1.svg'"
               alt="Dashboard Icon"
@@ -165,9 +181,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-profile"
+            [ngClass]="{ active: isActive('profile') }"
+            (click)="setActiveTab('profile')"
             class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded icon -->
             <img
               [lazyLoad]="'assets/dashboard-images-all/icon/icon_2.svg'"
               alt="Profile Icon"
@@ -179,9 +196,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-job-offer"
+            [ngClass]="{ active: isActive('jobOffer') }"
+            (click)="setActiveTab('jobOffer')"
             class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded icon -->
             <img
               [lazyLoad]="'assets/dashboard-images-all/icon/file.svg'"
               alt="Job Offer Icon"
@@ -193,9 +211,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-contract-details"
+            [ngClass]="{ active: isActive('contractDetails') }"
+            (click)="setActiveTab('contractDetails')"
             class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded icon -->
             <img
               [lazyLoad]="'assets/dashboard-images-all/icon/contract.svg'"
               alt="Contract Icon"
@@ -207,9 +226,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-health-declaration"
+            [ngClass]="{ active: isActive('healthDeclaration') }"
+            (click)="setActiveTab('healthDeclaration')"
             class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded Health Declaration Icon -->
             <img
               [lazyLoad]="'assets/dashboard-images-all/icon/healthcare.svg'"
               alt="Health Declaration"
@@ -223,9 +243,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-visa"
+            [ngClass]="{ active: isActive('visa') }"
+            (click)="setActiveTab('visa')"
             class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded Visa Icon -->
             <img
               [lazyLoad]="
                 'assets/dashboard-images-all/icon/id-card-svgrepo-com.svg'
@@ -241,9 +262,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-resume"
+            [ngClass]="{ active: isActive('resume') }"
+            (click)="setActiveTab('resume')"
             class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded Resume Icon -->
             <img
               [lazyLoad]="'assets/dashboard-images-all/icon/icon_3.svg'"
               alt="Resume"
@@ -257,9 +279,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-job-alert"
+            [ngClass]="{ active: isActive('jobAlert') }"
+            (click)="setActiveTab('jobAlert')"
             class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded Job Alert Icon -->
             <img
               [lazyLoad]="'assets/dashboard-images-all/icon/icon_5.svg'"
               alt="Job Alert"
@@ -273,9 +296,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-saved-jobs"
+            [ngClass]="{ active: isActive('savedJobs') }"
+            (click)="setActiveTab('savedJobs')"
             class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded Saved Job Icon -->
             <img
               [lazyLoad]="'assets/dashboard-images-all/icon/icon_6.svg'"
               alt="Saved Job"
@@ -289,9 +313,10 @@
         <li>
           <a
             routerLink="candidate-dashboard-settings"
+            [ngClass]="{ active: isActive('settings') }"
+            (click)="setActiveTab('settings')"
             class="d-flex w-100 align-items-center"
           >
-            <!-- Lazy-loaded Account Settings Icon -->
             <img
               [lazyLoad]="'assets/dashboard-images-all/icon/icon_7.svg'"
               alt="Account Settings"
@@ -302,12 +327,10 @@
         </li>
       </ul>
     </nav>
+
     <!-- /.dasboard-main-nav -->
 
-    <a
-      routerLink="/login-page"
-      class="d-flex w-100 align-items-center logout-btn"
-    >
+    <a (click)="logout()" class="d-flex w-100 align-items-center logout-btn">
       <img
         [lazyLoad]="'assets/dashboard-images-all/icon/icon_9.svg'"
         alt="log-out"

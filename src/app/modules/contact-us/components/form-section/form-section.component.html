@@ -1,0 +1,101 @@
+<div class="form-wrapper style-1">
+  <h2 class="title m-a0 wow fadeInUp" data-wow-delay="1.6s">Get In touch</h2>
+  <p class="font-text text-primary p-b10 wow fadeInUp" data-wow-delay="1.7s">
+    We are here for you. How we can help?
+  </p>
+  <div class="contact-area">
+    <form
+      class="dz-form dzForm style-1 contact-bx"
+      method="POST"
+      action="https://jobick.FNRCO-Jobs.com/frontend/xhtml/assets/script/contact_smtp.php"
+    >
+      <div class="dzFormMsg"></div>
+      <input type="hidden" class="form-control" name="dzToDo" value="Contact" />
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group wow fadeInUp" data-wow-delay="1.8s">
+            <input
+              name="dzFirstName"
+              required
+              type="text"
+              class="form-control"
+              placeholder="First Name"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group wow fadeInUp" data-wow-delay="1.9s">
+            <input
+              name="dzLastName"
+              required
+              type="text"
+              class="form-control"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group wow fadeInUp" data-wow-delay="2.0s">
+            <input
+              name="dzEmail"
+              required
+              type="text"
+              class="form-control"
+              placeholder="Email Address"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group wow fadeInUp" data-wow-delay="2.1s">
+            <input
+              name="dzPhoneNumber"
+              required
+              type="text"
+              class="form-control"
+              placeholder="Mobile No."
+            />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="input-group wow fadeInUp" data-wow-delay="2.2s">
+            <textarea
+              name="dzMessage"
+              rows="5"
+              required
+              class="form-control"
+              placeholder="Type Message..."
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="input-recaptcha wow fadeInUp" data-wow-delay="2.3s">
+            <div
+              class="g-recaptcha"
+              data-sitekey="6LefsVUUAAAAADBPsLZzsNnETChealv6PYGzv3ZN"
+              data-callback="verifyRecaptchaCallback"
+              data-expired-callback="expiredRecaptchaCallback"
+            ></div>
+            <input
+              class="form-control d-none"
+              style="display: none"
+              data-recaptcha="true"
+              required
+              data-error="Please complete the Captcha"
+            />
+          </div>
+        </div>
+        <div class="col-md-12 p-t20">
+          <button
+            name="submit"
+            type="submit"
+            value="Submit"
+            class="btn btn-primary wow fadeInUp"
+            data-wow-delay="2.4s"
+          >
+            Submit Now
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

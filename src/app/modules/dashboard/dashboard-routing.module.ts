@@ -11,6 +11,7 @@ import { JobAlertComponent } from './pages/job-alert/job-alert.component';
 import { SavedJobsComponent } from './pages/saved-jobs/saved-jobs.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { DashboardComponent1 } from './pages/dashboard/dashboard.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: '**', component: NotFoundComponent },
   // { path: 'dashboard/candidate-dashboard-profile', component: ProfileComponent },
 ];
 

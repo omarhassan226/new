@@ -1,0 +1,27 @@
+.contain{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-fields-section, .second-fields-section, .third-fields-section, .forth-fields-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fields-width{
+  width: 50%;
+}
+
+.py{
+  padding: 16px 0;
+}
+
+/* .container-width{
+  max-width: 1200px !important;
+} */
+
+

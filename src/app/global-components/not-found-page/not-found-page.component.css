@@ -1,0 +1,46 @@
+.page-content {
+  font-family: Arial, sans-serif;
+}
+
+.dz-bnr-inr {
+  text-align: center;
+  color: white;
+}
+
+.dz-bnr-inr-entry h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.content-inner {
+  padding: 50px 0;
+}
+
+.text-center h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.text-center p {
+  font-size: 18px;
+  color: #666;
+}
+
+.text-center .btn-primary {
+  padding: 12px 30px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.text-center img {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.contain{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
