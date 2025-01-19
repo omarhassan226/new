@@ -9,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class BlogGridComponent {
   blogCards = [1, 2, 3, 4];
+
+  bannerData = {
+    imageUrl: 'assets/images/banner/bnr2.jpg',
+    title: 'Blog',
+    link1: 'Home',
+    link2: 'Blog',
+  }
 }

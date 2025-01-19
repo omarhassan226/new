@@ -18,6 +18,8 @@ import { HeaderComponent } from './components/globals/header/header.component';
 import { WorkProccessCrdComponent } from './components/section2-cards/components/work-proccess-crd/work-proccess-crd.component';
 import { JobsCardComponent } from './components/section5-job-posts/components/jobs-card/jobs-card.component';
 import { UserReviewCardComponent } from './components/section6-users-review/components/user-review-card/user-review-card.component';
+import { FindJobsBttonComponent } from './components/globals/find-jobs-btton/find-jobs-btton.component';
+import { GlobalBannerComponent } from './components/globals/global-banner/global-banner.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,10 @@ import { UserReviewCardComponent } from './components/section6-users-review/comp
     WorkProccessCrdComponent,
     JobsCardComponent,
     UserReviewCardComponent,
+    FindJobsBttonComponent,
+    GlobalBannerComponent,
   ],
   imports: [CommonModule, HomeRoutingModule],
+  exports: [FindJobsBttonComponent, GlobalBannerComponent]
 })
 export class HomeModule {}

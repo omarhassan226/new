@@ -11,6 +11,7 @@ import { SearchComponent } from './components/right-section/search/search.compon
 import { CategoriesComponent } from './components/right-section/categories/categories.component';
 import { RecentPostsComponent } from './components/right-section/recent-posts/recent-posts.component';
 import { PopularTagsComponent } from './components/right-section/popular-tags/popular-tags.component';
+import { HomeModule } from '../home/home.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { PopularTagsComponent } from './components/right-section/popular-tags/po
     RecentPostsComponent,
     PopularTagsComponent,
   ],
-  imports: [CommonModule, BlogDetailsRoutingModule],
+  imports: [CommonModule, BlogDetailsRoutingModule, HomeModule],
 })
 export class BlogDetailsModule {}

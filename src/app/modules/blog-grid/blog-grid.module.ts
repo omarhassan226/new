@@ -6,6 +6,7 @@ import { BlogGridComponent } from './blog-grid.component';
 import { BlogCardComponent } from './components/blog-card/blog-card.component';
 import { BlogPaginationComponent } from './components/blog-pagination/blog-pagination.component';
 import { RightSectionComponent } from './components/right-section/right-section.component';
+import { HomeModule } from "../home/home.module";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { RightSectionComponent } from './components/right-section/right-section.
   ],
   imports: [
     CommonModule,
-    BlogGridRoutingModule
-  ]
+    BlogGridRoutingModule,
+    HomeModule
+]
 })
 export class BlogGridModule { }

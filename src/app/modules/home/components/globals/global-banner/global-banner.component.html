@@ -1,0 +1,18 @@
+<div
+class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-primary-dark"
+[ngStyle]="{'background-image': 'url(' + bannerData.imageUrl + ')'}"
+>
+<div class="container">
+  <div class="dz-bnr-inr-entry">
+    <h1>{{bannerData.title}}</h1>
+    <nav aria-label="breadcrumb" class="breadcrumb-row m-t15">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">{{bannerData.link1}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{bannerData.link2}}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+</div>
