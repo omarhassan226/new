@@ -24439,7 +24439,7 @@ p {
   }
 }
 
-.main-bnr:after {
+/* .main-bnr:after {
   content: '';
   position: absolute;
   top: 0;
@@ -24449,7 +24449,7 @@ p {
   height: calc(150vh + 300px);
   width: calc(60vh + 160px);
   z-index: -1;
-}
+} */
 
 @media only screen and (max-width: 1280px) {
   .main-bnr:after {
