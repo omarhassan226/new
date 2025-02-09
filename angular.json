@@ -54,6 +54,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/rose-red.css",
               "src/styles.css",
               "./public/assets/css/skin-1.css",
               "./public/assets/vendor/animate/animate.css",
@@ -117,7 +118,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"],
+            "styles": [
+              "@angular/material/prebuilt-themes/rose-red.css",
+              "src/styles.css"
+            ],
             "scripts": []
           }
         }

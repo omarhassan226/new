@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
         currentRoute.includes('register') ||
         currentRoute.includes('dashboard') ||
         currentRoute.includes('forget-password')
+        // currentRoute.includes('cv')
       ) {
         this.showNavbarAndFooter = false;
       } else {

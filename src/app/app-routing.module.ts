@@ -69,6 +69,13 @@ const routes: Routes = [
         (m) => m.ForgetPasswordModule
       ),
   },
+  {
+    path: 'cv',
+    loadChildren: () =>
+      import('../app/modules/create-cv/create-cv.module').then(
+        (m) => m.CreateCvModule
+      ),
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', component: NotFoundPageComponent },
 ];

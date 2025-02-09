@@ -1,0 +1,124 @@
+.background {
+  background: url('https://i.pinimg.com/originals/2d/0f/79/2d0f79b6194ce739ee53e5ace7eb2d35.jpg') no-repeat center center/cover;
+  height: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.image-content {
+  padding-left: 134px;
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: left;
+  width: 50%;
+  /* width: 50%; */
+}
+
+.content-wrapper {
+  max-width: 800px;
+  /* margin: 0 auto; */
+  padding: 20px;
+  /* margin: 0 0 0 10%; */
+}
+
+.content-wrapper h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.content-wrapper p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.content-wrapper ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.content-wrapper button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-card {
+  width: 80%;
+  max-width: 800px;
+  background: #fffbf8;
+  margin: 5% 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.cards-content{
+  color: #4d2c2d;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+mat-form-field {
+  flex: 1;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.submit-btn {
+  display: block;
+  width: 100px;
+  margin: 20px auto 0;
+  background-color: #be1f24 !important;
+  transition: 0.3s ease-in-out;
+  color: white !important;
+  border-radius: 5px !important;
+}
+
+.submit-btn:hover{
+  background-color: #ae1f23 !important;
+  color: white !important;
+  transition: 0.3s ease-in-out;
+}
