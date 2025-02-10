@@ -16,6 +16,7 @@ import { SavedJobsComponent } from './pages/saved-jobs/saved-jobs.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { DashboardComponent1 } from './pages/dashboard/dashboard.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     DashboardComponent1,
     NotFoundComponent,
   ],
-  imports: [CommonModule, DashboardRoutingModule, LazyLoadImageModule],
+  imports: [CommonModule, DashboardRoutingModule, LazyLoadImageModule, FormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardModule {}

@@ -1,7 +1,12 @@
 <div class="background">
   <div class="image-content">
-    <div class="content-wrapper">  <h1>Upload Your CV</h1>
-      <p>If you have technology, insurance, or banking skills and experience, send us your CV by filling out the form below.</p>
+    <div class="content-wrapper">
+      <h1>Upload Your CV</h1>
+      <div class="animation-border"></div>
+      <p>
+        If you have technology, insurance, or banking skills and experience, send us your CV by filling out the form
+        below.
+      </p>
       <p>By registering your details we can...</p>
       <ul>
         <li>Contact you with suitable jobs</li>
@@ -9,71 +14,197 @@
         <li>Occasionally, send you salary and pay rate insights</li>
       </ul>
       <p>We look forward to working with you.</p>
-      <p>Alternatively, if you want to work for Gravitas as part of our recruitment team or as part of our non-sales team, click below to upload your CV</p>
-      </div>
+      <p>
+        Alternatively, if you want to work for Gravitas as part of our recruitment team or as part of our non-sales
+        team, click below to upload your CV
+      </p>
+    </div>
   </div>
-  <div style="z-index: 100; padding-right: 134px; width: 30%;">
-  <img  src="https://cv-fnrco.com/frontend/images/logo_en_Group2.png" alt="">
-</div>
+  <div class="logo-wrapper">
+    <img src="https://cv-fnrco.com/frontend/images/logo_en_Group2.png" alt="Company Logo">
+  </div>
 </div>
 
+
 <div
-  style="display: flex; background-color: #f5f5f5; flex-direction: column; gap: 12px; justify-content: center; align-items: center; width: 100%; max-width: 100%; height: 100%;">
+  style="display: flex; background-color: #ecf3fd69;
+; flex-direction: column; gap: 12px; justify-content: center; align-items: center; width: 100%; max-width: 100%; height: 100%;">
   <mat-card class="form-card">
-    <h2 class="title cards-content" style="color: #ae1f23;">SEND YOUR RESUME TO JOIN THEM
+    <h2 class="title cards-content" style="color: #ae1f23;">Send your resume to join the team
     </h2>
-    <form class="form ">
+    <form class="form " (ngSubmit)="onSubmit()">
       <div class="row">
+        <!-- First Name -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">First Name</mat-label>
-          <input matInput />
+          <input matInput [(ngModel)]="firstName" name="firstName" />
         </mat-form-field>
+
+        <!-- Second Name -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Second Name</mat-label>
-          <input matInput />
+          <input matInput [(ngModel)]="secondName" name="secondName" />
         </mat-form-field>
+
+        <!-- Family Name -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Family Name</mat-label>
-          <input matInput />
+          <input matInput [(ngModel)]="familyName" name="familyName" />
         </mat-form-field>
       </div>
 
       <div class="row">
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Email</mat-label>
-          <input matInput type="email" />
+          <input matInput type="email" [(ngModel)]="email" name="email" />
         </mat-form-field>
+
+        <!-- Phone Number -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Phone No.</mat-label>
-          <input matInput />
+          <input matInput [(ngModel)]="phoneNo" name="phoneNo" />
         </mat-form-field>
       </div>
 
       <div class="row">
+        <!-- Gender -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Gender</mat-label>
-          <mat-select>
-            <mat-option value="male">Male</mat-option>
-            <mat-option value="female">Female</mat-option>
+          <mat-select [(ngModel)]="selectedGender" name="gender">
+            <mat-option [value]="item.id" *ngFor="let item of gender">{{item.meta_data_text}}</mat-option>
           </mat-select>
         </mat-form-field>
+        <!-- Martial Status -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Marital Status</mat-label>
-          <mat-select>
-            <mat-option value="single">Single</mat-option>
-            <mat-option value="married">Married</mat-option>
+          <mat-select [(ngModel)]="selectedMartialStatus" name="martial_status">
+            <mat-option [value]="item.id" *ngFor="let item of martialStatus">{{item.meta_data_text}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
 
-      <!-- Add other fields as needed -->
+      <div class="row">
+        <!-- Position -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Specilization</mat-label>
+          <mat-select [(ngModel)]="selectedPosition" name="position">
+            <mat-option [value]="item.id" *ngFor="let item of positions">{{item.position_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Years of experience -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Years of experience</mat-label>
+          <mat-select [(ngModel)]="selectedYear" name="year">
+            <mat-option [value]="item" *ngFor="let item of year">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <div class="row">
+        <!-- Nationality -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Nationality</mat-label>
+          <mat-select [(ngModel)]="selectedCountry" name="country" (selectionChange)="getCitiesByCountry()">
+            <mat-option [value]="item.id" *ngFor="let item of countries">{{item.country_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Location -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Current Location</mat-label>
+          <mat-select [(ngModel)]="selectedLocation" name="country1">
+            <mat-option [value]="item.id" *ngFor="let item of locations">{{item.country_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <!-- Qualifications -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Qualifications</mat-label>
+          <mat-select [(ngModel)]="selectedQualifications" name="qualifications">
+            <mat-option [value]="item.id" *ngFor="let item of qualifications">{{item.country_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Source -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Source</mat-label>
+          <mat-select [(ngModel)]="selectedSource" name="source">
+            <mat-option [value]="item.id" *ngFor="let item of source">{{item.country_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <!-- City -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">City</mat-label>
+          <mat-select [(ngModel)]="selectedCity" name="city">
+            <mat-option [value]="item.id" *ngFor="let item of allCities">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Date of Birth -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" name="dateOfBirth" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <!-- Language -->
+      <mat-form-field appearance="outline">
+        <mat-label class="cards-content">Languages</mat-label>
+        <mat-select [(ngModel)]="selectedCity" name="language">
+          <mat-option [value]="item.id" *ngFor="let item of allCities">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="row">
+        <!-- Address -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Address</mat-label>
+          <input matInput [(ngModel)]="address" name="address" placeholder="Enter your address" />
+        </mat-form-field>
+
+        <!-- Current Salary -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Current Salary</mat-label>
+          <input matInput type="number" [(ngModel)]="currentSalary" name="currentSalary"
+            placeholder="Enter current salary" />
+        </mat-form-field>
+
+        <!-- Expected Salary -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Expected Salary</mat-label>
+          <input matInput type="number" [(ngModel)]="expectedSalary" name="expectedSalary"
+            placeholder="Enter expected salary" />
+        </mat-form-field>
+      </div>
+
+      <!-- Upload CV -->
+      <div class="custom-file-input" style="padding-bottom: 20px;">
+        <button style="width: 100%;" mat-raised-button (click)="fileInput.click()">Upload CV</button>
+        <input type="file" #fileInput (change)="onFileSelected($event)" hidden />
+      </div>
+
+
+      <!-- IqamaType -->
+      <mat-form-field appearance="outline">
+        <mat-label class="cards-content">Iqama Type</mat-label>
+        <mat-select [(ngModel)]="selectedCity" name="city">
+          <mat-option [value]="item.id" *ngFor="let item of allCities">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label class="cards-content">Describe yourself here...</mat-label>
         <textarea matInput rows="3"></textarea>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" class="submit-btn">Send</button>
+      <button mat-raised-button color="primary" class="submit-btn" type="submit">Send</button>
     </form>
   </mat-card>
 </div>
+
+

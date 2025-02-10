@@ -41,7 +41,7 @@ export const apisList = {
     umdf: '/umdf/item',
     umdfAnswers: '/umdf/medical-declaration-form',
     announcement: '/announcement',
-    country: '/country',
+    country: '/country/index',
     position: '/position',
     businesSector: '/business-sector',
     cities: '/cities',
