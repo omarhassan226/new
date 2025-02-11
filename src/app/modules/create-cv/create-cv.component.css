@@ -184,3 +184,15 @@ mat-form-field {
   color: white !important;
   transition: 0.3s ease-in-out;
 }
+
+/* .default {
+  background-color: #007bff;
+  color: white;
+} */
+
+.uploaded {
+  background-color: #ae1f23 !important;
+  transition: 0.3s ease-in-out;
+  color: white !important;
+}
+

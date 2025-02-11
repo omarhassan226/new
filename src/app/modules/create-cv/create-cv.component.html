@@ -32,71 +32,103 @@
   <mat-card class="form-card">
     <h2 class="title cards-content" style="color: #ae1f23;">Send your resume to join the team
     </h2>
-    <form class="form " (ngSubmit)="onSubmit()">
+    <form class="form" [formGroup]="cvForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <!-- First Name -->
         <mat-form-field appearance="outline">
-          <mat-label class="cards-content">First Name</mat-label>
-          <input matInput [(ngModel)]="firstName" name="firstName" />
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" required />
+          <mat-error *ngIf="cvForm.get('firstName')?.invalid && (cvForm.get('firstName')?.dirty || cvForm.get('firstName')?.touched)">
+            First Name is required.
+          </mat-error>
         </mat-form-field>
 
         <!-- Second Name -->
         <mat-form-field appearance="outline">
-          <mat-label class="cards-content">Second Name</mat-label>
-          <input matInput [(ngModel)]="secondName" name="secondName" />
+          <mat-label>Second Name</mat-label>
+          <input matInput formControlName="secondName" required />
+          <mat-error *ngIf="cvForm.get('secondName')?.invalid && (cvForm.get('secondName')?.dirty || cvForm.get('secondName')?.touched)">
+            Second Name is required.
+          </mat-error>
         </mat-form-field>
 
         <!-- Family Name -->
         <mat-form-field appearance="outline">
-          <mat-label class="cards-content">Family Name</mat-label>
-          <input matInput [(ngModel)]="familyName" name="familyName" />
+          <mat-label>Family Name</mat-label>
+          <input matInput formControlName="familyName" required />
+          <mat-error *ngIf="cvForm.get('familyName')?.invalid && (cvForm.get('familyName')?.dirty || cvForm.get('familyName')?.touched)">
+            Family Name is required.
+          </mat-error>
         </mat-form-field>
       </div>
 
       <div class="row">
         <mat-form-field appearance="outline">
-          <mat-label class="cards-content">Email</mat-label>
-          <input matInput type="email" [(ngModel)]="email" name="email" />
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" required />
+          <mat-error *ngIf="cvForm.get('email')?.invalid && (cvForm.get('email')?.dirty || cvForm.get('email')?.touched)">
+            Please enter a valid email.
+          </mat-error>
         </mat-form-field>
 
         <!-- Phone Number -->
         <mat-form-field appearance="outline">
-          <mat-label class="cards-content">Phone No.</mat-label>
-          <input matInput [(ngModel)]="phoneNo" name="phoneNo" />
+          <mat-label>Phone No.</mat-label>
+          <input matInput formControlName="phoneNo" required maxlength="11" />
+          <mat-error *ngIf="cvForm.get('phoneNo')?.hasError('required') && (cvForm.get('phoneNo')?.dirty || cvForm.get('phoneNo')?.touched)">
+            Phone Number is required.
+          </mat-error>
+          <mat-error *ngIf="cvForm.get('phoneNo')?.hasError('pattern') && (cvForm.get('phoneNo')?.dirty || cvForm.get('phoneNo')?.touched)">
+            Phone Number must be 11 digits and contain only numbers.
+          </mat-error>
         </mat-form-field>
+
       </div>
 
       <div class="row">
         <!-- Gender -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Gender</mat-label>
-          <mat-select [(ngModel)]="selectedGender" name="gender">
+          <mat-select formControlName="selectedGender" required>
             <mat-option [value]="item.id" *ngFor="let item of gender">{{item.meta_data_text}}</mat-option>
           </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedGender')?.invalid && (cvForm.get('selectedGender')?.dirty || cvForm.get('selectedGender')?.touched)">
+            Please select a gender.
+          </mat-error>
         </mat-form-field>
         <!-- Martial Status -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Marital Status</mat-label>
-          <mat-select [(ngModel)]="selectedMartialStatus" name="martial_status">
+          <mat-select formControlName="selectedMartialStatus" required>
             <mat-option [value]="item.id" *ngFor="let item of martialStatus">{{item.meta_data_text}}</mat-option>
           </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedMartialStatus')?.invalid && (cvForm.get('selectedMartialStatus')?.dirty || cvForm.get('selectedMartialStatus')?.touched)">
+            Please select a marital status.
+          </mat-error>
         </mat-form-field>
       </div>
 
       <div class="row">
-        <!-- Position -->
+        <!-- Specialization -->
         <mat-form-field appearance="outline">
-          <mat-label class="cards-content">Specilization</mat-label>
-          <mat-select [(ngModel)]="selectedPosition" name="position">
-            <mat-option [value]="item.id" *ngFor="let item of positions">{{item.position_name}}</mat-option>
+          <mat-label class="cards-content">Specialization</mat-label>
+          <mat-select formControlName="selectedPosition" required>
+            <mat-option [value]="item.id" *ngFor="let item of positions">{{ item.position_name }}</mat-option>
           </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedPosition')?.invalid && (cvForm.get('selectedPosition')?.dirty || cvForm.get('selectedPosition')?.touched)">
+            Please select a specialization.
+          </mat-error>
         </mat-form-field>
-        <!-- Years of experience -->
+
+        <!-- Qualifications -->
         <mat-form-field appearance="outline">
-          <mat-label class="cards-content">Years of experience</mat-label>
-          <mat-select [(ngModel)]="selectedYear" name="year">
-            <mat-option [value]="item" *ngFor="let item of year">{{item}}</mat-option>
+          <mat-label class="cards-content">Qualifications</mat-label>
+          <mat-select formControlName="selectedQualifications" required>
+            <mat-option [value]="item.id" *ngFor="let item of qualifications">{{ item.country_name }}</mat-option>
           </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedQualifications')?.invalid && (cvForm.get('selectedQualifications')?.dirty || cvForm.get('selectedQualifications')?.touched)">
+            Please select a qualification.
+          </mat-error>
         </mat-form-field>
       </div>
 
@@ -105,33 +137,47 @@
         <!-- Nationality -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Nationality</mat-label>
-          <mat-select [(ngModel)]="selectedCountry" name="country" (selectionChange)="getCitiesByCountry()">
-            <mat-option [value]="item.id" *ngFor="let item of countries">{{item.country_name}}</mat-option>
+          <mat-select formControlName="selectedCountry" (selectionChange)="getCitiesByCountry()" required>
+            <mat-option [value]="item.id" *ngFor="let item of countries">{{ item.country_name }}</mat-option>
           </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedCountry')?.invalid && (cvForm.get('selectedCountry')?.dirty || cvForm.get('selectedCountry')?.touched)">
+            Please select a nationality.
+          </mat-error>
         </mat-form-field>
-        <!-- Location -->
+
+        <!-- Current Location -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Current Location</mat-label>
-          <mat-select [(ngModel)]="selectedLocation" name="country1">
-            <mat-option [value]="item.id" *ngFor="let item of locations">{{item.country_name}}</mat-option>
+          <mat-select formControlName="selectedLocation" required>
+            <mat-option [value]="item.id" *ngFor="let item of locations">{{ item.country_name }}</mat-option>
           </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedLocation')?.invalid && (cvForm.get('selectedLocation')?.dirty || cvForm.get('selectedLocation')?.touched)">
+            Please select your current location.
+          </mat-error>
         </mat-form-field>
       </div>
 
       <div class="row">
-        <!-- Qualifications -->
-        <mat-form-field appearance="outline">
-          <mat-label class="cards-content">Qualifications</mat-label>
-          <mat-select [(ngModel)]="selectedQualifications" name="qualifications">
-            <mat-option [value]="item.id" *ngFor="let item of qualifications">{{item.country_name}}</mat-option>
-          </mat-select>
-        </mat-form-field>
         <!-- Source -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Source</mat-label>
-          <mat-select [(ngModel)]="selectedSource" name="source">
-            <mat-option [value]="item.id" *ngFor="let item of source">{{item.country_name}}</mat-option>
+          <mat-select formControlName="selectedSource" required>
+            <mat-option [value]="item.id" *ngFor="let item of source">{{ item.name }}</mat-option>
           </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedSource')?.invalid && (cvForm.get('selectedSource')?.dirty || cvForm.get('selectedSource')?.touched)">
+            Please select a source.
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Years of Experience -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Years of Experience</mat-label>
+          <mat-select formControlName="selectedYear" required>
+            <mat-option [value]="item" *ngFor="let item of year">{{ item }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedYear')?.invalid && (cvForm.get('selectedYear')?.dirty || cvForm.get('selectedYear')?.touched)">
+            Please select your years of experience.
+          </mat-error>
         </mat-form-field>
       </div>
 
@@ -139,62 +185,98 @@
         <!-- City -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">City</mat-label>
-          <mat-select [(ngModel)]="selectedCity" name="city">
+          <mat-select formControlName="selectedCity" required>
             <mat-option [value]="item.id" *ngFor="let item of allCities">{{item.name}}</mat-option>
           </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedCity')?.invalid && (cvForm.get('selectedCity')?.dirty || cvForm.get('selectedCity')?.touched)">
+            Please select a city.
+          </mat-error>
         </mat-form-field>
         <!-- Date of Birth -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Date of Birth</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" name="dateOfBirth" />
+          <input matInput [matDatepicker]="picker" formControlName="selectedDate" required />
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+
+          <mat-error *ngIf="cvForm.get('selectedDate')?.hasError('required')">
+            Date of Birth is required.
+          </mat-error>
+          <mat-error *ngIf="cvForm.get('selectedDate')?.hasError('futureDate')">
+            Date of Birth cannot be in the future.
+          </mat-error>
         </mat-form-field>
       </div>
 
-      <!-- Language -->
-      <mat-form-field appearance="outline">
-        <mat-label class="cards-content">Languages</mat-label>
-        <mat-select [(ngModel)]="selectedCity" name="language">
-          <mat-option [value]="item.id" *ngFor="let item of allCities">{{item.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-
       <div class="row">
+        <!-- Language -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Languages</mat-label>
+          <mat-select formControlName="selectedLanguage" required>
+            <mat-option [value]="item.id" *ngFor="let item of languages">{{item.name}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedLanguage')?.invalid && (cvForm.get('selectedLanguage')?.dirty || cvForm.get('selectedLanguage')?.touched)">
+            Please select a language.
+          </mat-error>
+        </mat-form-field>
+
         <!-- Address -->
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Address</mat-label>
-          <input matInput [(ngModel)]="address" name="address" placeholder="Enter your address" />
+          <input matInput formControlName="address" required />
+          <mat-error *ngIf="cvForm.get('address')?.invalid && (cvForm.get('address')?.dirty || cvForm.get('address')?.touched)">
+            Address is required.
+          </mat-error>
         </mat-form-field>
+      </div>
 
+
+      <div class="row">
         <!-- Current Salary -->
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Current Salary</mat-label>
-          <input matInput type="number" [(ngModel)]="currentSalary" name="currentSalary"
-            placeholder="Enter current salary" />
+          <input matInput type="number" formControlName="currentSalary" placeholder="Enter current salary" required />
+          <mat-error *ngIf="cvForm.get('currentSalary')?.invalid && (cvForm.get('currentSalary')?.dirty || cvForm.get('currentSalary')?.touched)">
+            Please enter your current salary.
+          </mat-error>
         </mat-form-field>
 
         <!-- Expected Salary -->
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Expected Salary</mat-label>
-          <input matInput type="number" [(ngModel)]="expectedSalary" name="expectedSalary"
-            placeholder="Enter expected salary" />
+          <input matInput type="number" formControlName="expectedSalary" placeholder="Enter expected salary" required />
+          <mat-error *ngIf="cvForm.get('expectedSalary')?.invalid && (cvForm.get('expectedSalary')?.dirty || cvForm.get('expectedSalary')?.touched)">
+            Please enter your expected salary.
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Currency -->
+        <mat-form-field appearance="outline">
+          <mat-label class="cards-content">Currency</mat-label>
+          <mat-select formControlName="selectedCurrency" required>
+            <mat-option [value]="item" *ngFor="let item of year">{{item}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="cvForm.get('selectedCurrency')?.invalid && (cvForm.get('selectedCurrency')?.dirty || cvForm.get('selectedCurrency')?.touched)">
+            Please select a currency.
+          </mat-error>
         </mat-form-field>
       </div>
 
       <!-- Upload CV -->
       <div class="custom-file-input" style="padding-bottom: 20px;">
-        <button style="width: 100%;" mat-raised-button (click)="fileInput.click()">Upload CV</button>
+        <button [ngClass]="{'uploaded': isCvUploaded, 'default': !isCvUploaded}" style="width: 100%;" mat-raised-button (click)="fileInput.click()">Upload CV</button>
         <input type="file" #fileInput (change)="onFileSelected($event)" hidden />
       </div>
-
 
       <!-- IqamaType -->
       <mat-form-field appearance="outline">
         <mat-label class="cards-content">Iqama Type</mat-label>
-        <mat-select [(ngModel)]="selectedCity" name="city">
+        <mat-select formControlName="selectedCity" required>
           <mat-option [value]="item.id" *ngFor="let item of allCities">{{item.name}}</mat-option>
         </mat-select>
+        <mat-error *ngIf="cvForm.get('selectedCity')?.invalid && (cvForm.get('selectedCity')?.dirty || cvForm.get('selectedCity')?.touched)">
+          Please select an Iqama Type.
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
@@ -206,5 +288,3 @@
     </form>
   </mat-card>
 </div>
-
-

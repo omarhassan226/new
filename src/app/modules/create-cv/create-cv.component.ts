@@ -3,10 +3,11 @@ import { Subscription } from 'rxjs';
 import { MasterDataService } from '../../core/masterData/master-data.service';
 import { IApiResponse } from '../../core/interfaces/api/api';
 import { RequestsService } from '../../core/requests/requests.service';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-cv',
-  standalone:false,
+  standalone: false,
   templateUrl: './create-cv.component.html',
   styleUrls: ['./create-cv.component.css']
 })
@@ -16,60 +17,68 @@ export class CreateCvComponent implements OnInit {
   minWidth = 5
   //===========
 
-  subscription:Subscription = new Subscription()
-  selectedDate:any
-  address!: any;
-  currentSalary!: any;
-  expectedSalary!: any;
-  firstName!: string;
-  secondName!: string;
-  familyName!: string;
-  email!: string;
-  phoneNo!: string;
-  cvFile: File | null = null;
+  subscription: Subscription = new Subscription()
+  cvForm: FormGroup;
 
-  gender!:any[];
-  selectedGender!: any;
+  isCvUploaded = false;
 
-  martialStatus!:any[];
-  selectedMartialStatus!:any;
+  gender!: any[];
+
+  martialStatus!: any[];
 
   year: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, '15+'];
-  selectedYear!:any;
 
-  countries!:any[]
-  selectedCountry!:any
+  countries!: any[]
 
-  positions!:any[]
-  selectedPosition!:any
+  positions!: any[]
 
-  locations!:any[]
-  selectedLocation!:any
+  locations!: any[]
 
-  source!:any[]
-  selectedSource!:any
+  source!: any[]
 
-  iqamaType!:any[]
-  selectedIqamaType!:any
+  iqamaType!: any[]
 
-  qualifications!:any[]
-  selectedQualifications!:any
+  qualifications!: any[]
 
-  allCities!:any[]
-  selectedCity!:any
+  allCities!: any[]
 
-  languages!:any[]
-  selectedLanguage!:any
+  languages!: any[]
 
-  constructor(private masterService:MasterDataService, private requestsService: RequestsService){}
-
+  constructor(private masterService: MasterDataService, private requestsService: RequestsService, private fb: FormBuilder) {
+    {
+      this.cvForm = this.fb.group({
+        firstName: ['', Validators.required],
+        secondName: ['', Validators.required],
+        familyName: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        phoneNo: ['', [Validators.required, Validators.pattern('^[0-9]{11}$')]],
+        selectedGender: ['', Validators.required],
+        selectedMartialStatus: ['', Validators.required],
+        selectedPosition: ['', Validators.required],
+        selectedYear: ['', Validators.required],
+        selectedCountry: ['', Validators.required],
+        selectedLocation: ['', Validators.required],
+        selectedCity: ['', Validators.required],
+        selectedDate: ['', [Validators.required, this.pastDateValidator]],
+        selectedSource: ['', Validators.required],
+        selectedLanguage: ['', Validators.required],
+        selectedIqamaType: ['', Validators.required],
+        selectedQualifications: ['', Validators.required],
+        selectedCurrency: ['', Validators.required],
+        address: ['', Validators.required],
+        currentSalary: ['', [Validators.required, Validators.min(0)]],
+        expectedSalary: ['', [Validators.required, Validators.min(0)]],
+        cvFile: [null, Validators.required]
+      });
+    }
+  }
   // Animation Logic
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const scrollPercentage = Math.max(0, Math.min(1, scrollTop / this.maxHeight));
 
-    const newWidth = ( 100 - scrollPercentage * 100);
+    const newWidth = (100 - scrollPercentage * 100);
 
     const element = document.querySelector('.animation-border') as HTMLElement;
     if (element) {
@@ -77,6 +86,19 @@ export class CreateCvComponent implements OnInit {
     }
   }
   // End of Animation Logic
+
+  get f() {
+    return this.cvForm.controls;
+  }
+
+  //Date validation
+  pastDateValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    if (!control.value) return null;
+    const today = new Date();
+    const selectedDate = new Date(control.value);
+    return selectedDate > today ? { futureDate: true } : null;
+  }
+
 
   ngOnInit(): void {
     this.onWindowScroll();
@@ -88,160 +110,152 @@ export class CreateCvComponent implements OnInit {
     this.getIqamaType()
     this.getQualifications()
     this.getSource()
+    this.getLanguages()
   }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.cvFile = input.files[0];
-      console.log('CV File Selected:', this.cvFile.name);
+      this.f['cvFile'].setValue(input.files[0]);
+      this.isCvUploaded = true;
+      console.log('CV File Selected:', this.f['cvFile']);
     }
   }
 
   //API Logic
-  getGender(){
+  getGender() {
     this.subscription = this.masterService.getMetaData('221').subscribe({
-      next:(res:IApiResponse)=>{
+      next: (res: IApiResponse) => {
         this.gender = res.data
-        console.log(res);
+        console.log('gender',res);
       }
     })
   }
 
-  getMartialStaus(){
+  getMartialStaus() {
     this.subscription = this.masterService.getMetaData('112').subscribe({
-      next:(res:IApiResponse)=>{
+      next: (res: IApiResponse) => {
         this.martialStatus = res.data
-        console.log(res);
+        console.log('martialStatus',res);
       }
     })
   }
 
-  getSource(){
+  getSource() {
     this.subscription = this.masterService.getMetaData('155').subscribe({
-      next:(res:IApiResponse)=>{
+      next: (res: IApiResponse) => {
         this.source = res.data
-        console.log('source',res);
+        console.log('source', res);
       }
     })
   }
 
-  getIqamaType(){
+  getIqamaType() {
     this.subscription = this.masterService.getMetaData('156').subscribe({
-      next:(res:IApiResponse)=>{
+      next: (res: IApiResponse) => {
         this.iqamaType = res.data
-        console.log('iqama',res);
+        console.log('iqama', res);
       }
     })
   }
 
-  getQualifications(){
+  getQualifications() {
     this.subscription = this.masterService.getMetaData('157').subscribe({
-      next:(res:IApiResponse)=>{
+      next: (res: IApiResponse) => {
         this.qualifications = res.data
-        console.log('qualification',res);
+        console.log('qualification', res);
       }
     })
   }
 
-  getCountries(){
+  getLanguages() {
+    this.subscription = this.masterService.getMetaData('158').subscribe({
+      next: (res: IApiResponse) => {
+        this.languages = res.data
+        console.log('languages', res);
+      }
+    })
+  }
+
+  getCountries() {
     this.subscription = this.masterService.getCountry().subscribe({
-      next:(res:IApiResponse)=>{
+      next: (res: IApiResponse) => {
         this.countries = res.data
-        // this.countries.map((country:any)=>{
-        //   return country.id === this.selectedCountry
-        // })
-        console.log(res);
+        console.log('Countries',res);
       }
     })
   }
 
   getCitiesByCountry() {
-      this.requestsService.getCitiesByCountry(this.selectedCountry).subscribe(
-        {
-          next: (res: IApiResponse) => {
-            console.log(this.selectedCountry);
-            this.allCities = res.data;
-            console.log('cities', this.allCities);
-          },
-          error: (err:any) => {
-            console.log(err);
-          }
+    this.requestsService.getCitiesByCountry(this.f['selectedCountry'].value).subscribe(
+      {
+        next: (res: IApiResponse) => {
+          console.log(this.f['selectedCountry'].value);
+          this.allCities = res.data;
+          console.log('cities', this.allCities);
+        },
+        error: (err: any) => {
+          console.log(err);
         }
-      )
+      }
+    )
   }
 
-  getCurrentLocation(){
+  getCurrentLocation() {
     this.subscription = this.masterService.getCountry().subscribe({
-      next:(res:IApiResponse)=>{
+      next: (res: IApiResponse) => {
         this.locations = res.data
-        console.log(res);
+        console.log('Location', res);
       }
     })
   }
 
-  getPositions(){
+  getPositions() {
     this.subscription = this.requestsService.getPositions().subscribe({
-      next:(res:IApiResponse)=>{
+      next: (res: IApiResponse) => {
         this.positions = res.data
-        console.log(res);
+        console.log('Positions',res);
       }
     })
   }
-
-  // onSubmit(){
-  //   console.log('gender', this.selectedGender);
-  //   console.log('martial status', this.selectedMartialStatus);
-  //   console.log('experience years', this.selectedYear);
-  //   console.log('country', this.selectedCountry);
-  //   console.log('positon', this.selectedPosition);
-  //   console.log('location', this.selectedLocation);
-  //   console.log('city', this.selectedCity);
-  //   console.log('date of birth', this.selectedDate);
-  //   console.log('Address:', this.address);
-  //   console.log('Current Salary:', this.currentSalary);
-  //   console.log('Expected Salary:', this.expectedSalary);
-  //   console.log('First Name:', this.firstName);
-  //   console.log('Second Name:', this.secondName);
-  //   console.log('Family Name:', this.familyName);
-  //   console.log('Email:', this.email);
-  //   console.log('Phone No.:', this.phoneNo);
-  //   console.log('Uploaded CV:', this.cvFile ? this.cvFile.name : 'No file uploaded');
-  // }
 
   onSubmit(): void {
-    if (!this.cvFile) {
-      console.error('Please select a CV file before submitting.');
-      return;
-    }
+    // if (!this.f['cvFile'].value) {
+    //   console.error('Please select a CV file before submitting.');
+    //   return;
+    // }
 
     const formData = new FormData();
 
     // Append file
-    formData.append('cvFile', this.cvFile);
+    formData.append('cvFile', this.f['cvFile'].value);
 
     // Append other form fields
-    formData.append('firstName', this.firstName || '');
-    formData.append('secondName', this.secondName || '');
-    formData.append('familyName', this.familyName || '');
-    formData.append('email', this.email || '');
-    formData.append('phoneNo', this.phoneNo || '');
-    formData.append('address', this.address || '');
-    formData.append('currentSalary', this.currentSalary || '');
-    formData.append('expectedSalary', this.expectedSalary || '');
-    formData.append('gender', this.selectedGender || '');
-    formData.append('martialStatus', this.selectedMartialStatus || '');
-    formData.append('experienceYears', this.selectedYear || '');
-    formData.append('country', this.selectedCountry || '');
-    formData.append('position', this.selectedPosition || '');
-    formData.append('location', this.selectedLocation || '');
-    formData.append('city', this.selectedCity || '');
-    formData.append('dateOfBirth', this.selectedDate || '');
+    formData.append('firstName', this.f['firstName'].value || '');
+    formData.append('secondName', this.f['secondName'].value || '');
+    formData.append('familyName', this.f['familyName'].value || '');
+    formData.append('email', this.f['email'].value || '');
+    formData.append('phoneNo', this.f['phoneNo'].value || '');
+    formData.append('address', this.f['address'].value || '');
+    formData.append('currentSalary', this.f['currentSalary'].value || '');
+    formData.append('expectedSalary', this.f['expectedSalary'].value || '');
+    formData.append('gender', this.f['selectedGender'].value || '');
+    formData.append('martialStatus', this.f['selectedMartialStatus'].value || '');
+    formData.append('experienceYears', this.f['selectedYear'].value || '');
+    formData.append('country', this.f['selectedCountry'].value || '');
+    formData.append('position', this.f['selectedPosition'].value || '');
+    formData.append('location', this.f['selectedLocation'].value || '');
+    formData.append('city', this.f['selectedCity'].value || '');
+    formData.append('dateOfBirth', this.f['selectedDate'].value || '');
 
-    // Log the FormData content (optional for debugging)
-    console.log('Submitting FormData:');
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
+    if (this.cvForm.valid){
+      console.log('Submitting FormData:');
+      for (const [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
+    }else {
+      console.log('Form Invalid');
+      this.cvForm.markAllAsTouched(); // Mark all fields as touched to trigger validation messages
     }
 
     // Send the data via the service
@@ -256,3 +270,4 @@ export class CreateCvComponent implements OnInit {
   }
 
 }
+
