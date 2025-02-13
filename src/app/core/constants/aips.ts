@@ -37,6 +37,7 @@ export const apisList = {
   masterData: {
     recruitmentProcess: '/recruitment-process',
     applicationApproval: '/application-approval',
+    currencies:'/currencies',
     uploadFilesLocalProcess: '/hiring-request-form/upload-files',
     umdf: '/umdf/item',
     umdfAnswers: '/umdf/medical-declaration-form',

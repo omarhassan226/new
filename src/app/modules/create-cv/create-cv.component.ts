@@ -44,6 +44,8 @@ export class CreateCvComponent implements OnInit {
 
   languages!: any[]
 
+  currencies!: any[]
+
   constructor(private masterService: MasterDataService, private requestsService: RequestsService, private fb: FormBuilder) {
     {
       this.cvForm = this.fb.group({
@@ -111,6 +113,7 @@ export class CreateCvComponent implements OnInit {
     this.getQualifications()
     this.getSource()
     this.getLanguages()
+    this.getCurrencies()
   }
 
   onFileSelected(event: Event): void {
@@ -219,6 +222,15 @@ export class CreateCvComponent implements OnInit {
     })
   }
 
+  getCurrencies() {
+    this.subscription = this.requestsService.getCurrencies().subscribe({
+      next: (res: IApiResponse) => {
+        this.currencies = res.data
+        console.log('Currencies',res);
+      }
+    })
+  }
+
   onSubmit(): void {
     // if (!this.f['cvFile'].value) {
     //   console.error('Please select a CV file before submitting.');
@@ -247,15 +259,18 @@ export class CreateCvComponent implements OnInit {
     formData.append('location', this.f['selectedLocation'].value || '');
     formData.append('city', this.f['selectedCity'].value || '');
     formData.append('dateOfBirth', this.f['selectedDate'].value || '');
+    formData.append('iqamaType', this.f['selectedIqamaType'].value || '');
+    formData.append('currency', this.f['selectedCurrency'].value || '');
+    // if (this.cvForm.valid){
 
-    if (this.cvForm.valid){
-      console.log('Submitting FormData:');
+    if (true){
+        console.log('Submitting FormData:');
       for (const [key, value] of formData.entries()) {
         console.log(`${key}: ${value}`);
       }
     }else {
       console.log('Form Invalid');
-      this.cvForm.markAllAsTouched(); // Mark all fields as touched to trigger validation messages
+      this.cvForm.markAllAsTouched();
     }
 
     // Send the data via the service

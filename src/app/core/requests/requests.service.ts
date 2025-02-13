@@ -23,6 +23,9 @@ export class RequestsService {
   getPositions(): Observable<IApiResponse> {
     return this.http.get<IApiResponse>(environment.apiUrl + apisList.position.general)
   }
+  getCurrencies(): Observable<IApiResponse> {
+    return this.http.get<IApiResponse>(environment.apiUrl + apisList.masterData.currencies)
+  }
   getCitiesByCountry(countryId: string): Observable<IApiResponse> {
     return this.http.get<IApiResponse>(environment.apiUrl + apisList.masterData.cities + `?country_id_2=${countryId}`)
   }

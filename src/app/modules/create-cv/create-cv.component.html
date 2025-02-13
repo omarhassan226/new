@@ -124,7 +124,7 @@
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Qualifications</mat-label>
           <mat-select formControlName="selectedQualifications" required>
-            <mat-option [value]="item.id" *ngFor="let item of qualifications">{{ item.country_name }}</mat-option>
+            <mat-option [value]="item.id" *ngFor="let item of qualifications">{{ item.meta_data_text }}</mat-option>
           </mat-select>
           <mat-error *ngIf="cvForm.get('selectedQualifications')?.invalid && (cvForm.get('selectedQualifications')?.dirty || cvForm.get('selectedQualifications')?.touched)">
             Please select a qualification.
@@ -162,7 +162,7 @@
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Source</mat-label>
           <mat-select formControlName="selectedSource" required>
-            <mat-option [value]="item.id" *ngFor="let item of source">{{ item.name }}</mat-option>
+            <mat-option [value]="item.id" *ngFor="let item of source">{{ item.meta_data_text }}</mat-option>
           </mat-select>
           <mat-error *ngIf="cvForm.get('selectedSource')?.invalid && (cvForm.get('selectedSource')?.dirty || cvForm.get('selectedSource')?.touched)">
             Please select a source.
@@ -213,7 +213,7 @@
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Languages</mat-label>
           <mat-select formControlName="selectedLanguage" required>
-            <mat-option [value]="item.id" *ngFor="let item of languages">{{item.name}}</mat-option>
+            <mat-option [value]="item.id" *ngFor="let item of languages">{{item.meta_data_text}}</mat-option>
           </mat-select>
           <mat-error *ngIf="cvForm.get('selectedLanguage')?.invalid && (cvForm.get('selectedLanguage')?.dirty || cvForm.get('selectedLanguage')?.touched)">
             Please select a language.
@@ -254,7 +254,7 @@
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Currency</mat-label>
           <mat-select formControlName="selectedCurrency" required>
-            <mat-option [value]="item" *ngFor="let item of year">{{item}}</mat-option>
+            <mat-option [value]="item" *ngFor="let item of currencies">{{item.currency_name}}</mat-option>
           </mat-select>
           <mat-error *ngIf="cvForm.get('selectedCurrency')?.invalid && (cvForm.get('selectedCurrency')?.dirty || cvForm.get('selectedCurrency')?.touched)">
             Please select a currency.
@@ -271,10 +271,10 @@
       <!-- IqamaType -->
       <mat-form-field appearance="outline">
         <mat-label class="cards-content">Iqama Type</mat-label>
-        <mat-select formControlName="selectedCity" required>
-          <mat-option [value]="item.id" *ngFor="let item of allCities">{{item.name}}</mat-option>
+        <mat-select formControlName="selectedIqama" required>
+          <mat-option [value]="item.id" *ngFor="let item of iqamaType">{{item.meta_data_text}}</mat-option>
         </mat-select>
-        <mat-error *ngIf="cvForm.get('selectedCity')?.invalid && (cvForm.get('selectedCity')?.dirty || cvForm.get('selectedCity')?.touched)">
+        <mat-error *ngIf="cvForm.get('selectedIqama')?.invalid && (cvForm.get('selectedIqama')?.dirty || cvForm.get('selectedIqama')?.touched)">
           Please select an Iqama Type.
         </mat-error>
       </mat-form-field>
