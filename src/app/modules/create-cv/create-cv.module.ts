@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { CreateCvRoutingModule } from './create-cv-routing.module';
 import { CreateCvComponent } from './create-cv.component';
 import { MatInputModule } from '@angular/material/input';
@@ -29,6 +29,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers:[DatePipe]
 })
 export class CreateCvModule { }

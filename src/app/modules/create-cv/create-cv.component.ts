@@ -4,6 +4,7 @@ import { MasterDataService } from '../../core/masterData/master-data.service';
 import { IApiResponse } from '../../core/interfaces/api/api';
 import { RequestsService } from '../../core/requests/requests.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-cv',
@@ -46,7 +47,7 @@ export class CreateCvComponent implements OnInit {
 
   currencies!: any[]
 
-  constructor(private masterService: MasterDataService, private requestsService: RequestsService, private fb: FormBuilder) {
+  constructor(private masterService: MasterDataService, private requestsService: RequestsService, private fb: FormBuilder, private datePipe: DatePipe) {
     {
       this.cvForm = this.fb.group({
         firstName: ['', Validators.required],
@@ -64,7 +65,7 @@ export class CreateCvComponent implements OnInit {
         selectedDate: ['', [Validators.required, this.pastDateValidator]],
         selectedSource: ['', Validators.required],
         selectedLanguage: ['', Validators.required],
-        selectedIqamaType: ['', Validators.required],
+        selectedIqama: ['', Validators.required],
         selectedQualifications: ['', Validators.required],
         selectedCurrency: ['', Validators.required],
         address: ['', Validators.required],
@@ -258,16 +259,26 @@ export class CreateCvComponent implements OnInit {
     formData.append('position', this.f['selectedPosition'].value || '');
     formData.append('location', this.f['selectedLocation'].value || '');
     formData.append('city', this.f['selectedCity'].value || '');
-    formData.append('dateOfBirth', this.f['selectedDate'].value || '');
-    formData.append('iqamaType', this.f['selectedIqamaType'].value || '');
+    const formattedDate = this.datePipe.transform(this.cvForm.get('selectedDate')?.value, 'yyyy-MM-dd');
+    formData.append('dateOfBirth', formattedDate || '');
+    formData.append('iqamaType', this.f['selectedIqama'].value || '');
     formData.append('currency', this.f['selectedCurrency'].value || '');
     // if (this.cvForm.valid){
 
-    if (true){
+    if (formData){
         console.log('Submitting FormData:');
       for (const [key, value] of formData.entries()) {
         console.log(`${key}: ${value}`);
       }
+
+      this.subscription = this.masterService.CvStore(formData).subscribe({
+        next:(res:any)=>{
+          console.log(res);
+        },
+        error:(err:any)=>{
+          console.log(err);
+        }
+      })
     }else {
       console.log('Form Invalid');
       this.cvForm.markAllAsTouched();

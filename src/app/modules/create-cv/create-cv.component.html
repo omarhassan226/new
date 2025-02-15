@@ -195,7 +195,7 @@
         <!-- Date of Birth -->
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Date of Birth</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="selectedDate" required />
+          <input matInput [matDatepicker]="picker" formControlName="selectedDate" />
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
 
@@ -254,7 +254,7 @@
         <mat-form-field appearance="outline">
           <mat-label class="cards-content">Currency</mat-label>
           <mat-select formControlName="selectedCurrency" required>
-            <mat-option [value]="item" *ngFor="let item of currencies">{{item.currency_name}}</mat-option>
+            <mat-option [value]="item.id" *ngFor="let item of currencies">{{item.currency_name}}</mat-option>
           </mat-select>
           <mat-error *ngIf="cvForm.get('selectedCurrency')?.invalid && (cvForm.get('selectedCurrency')?.dirty || cvForm.get('selectedCurrency')?.touched)">
             Please select a currency.
@@ -269,7 +269,7 @@
       </div>
 
       <!-- IqamaType -->
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" *ngIf="cvForm.value.selectedCountry !== 1 && cvForm.value.selectedLocation === 1">
         <mat-label class="cards-content">Iqama Type</mat-label>
         <mat-select formControlName="selectedIqama" required>
           <mat-option [value]="item.id" *ngFor="let item of iqamaType">{{item.meta_data_text}}</mat-option>

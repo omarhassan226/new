@@ -35,6 +35,7 @@ export const apisList = {
     general: '/position',
   },
   masterData: {
+    CvStore:'/cv_bank/store',
     recruitmentProcess: '/recruitment-process',
     applicationApproval: '/application-approval',
     currencies:'/currencies',

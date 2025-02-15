@@ -81,6 +81,13 @@ export class MasterDataService {
     );
   }
 
+  CvStore(body: any): Observable<IApiResponse> {
+    return this.http.post<IApiResponse>(
+      `${environment.apiUrl}${apisList.masterData.CvStore}`,
+      body
+    );
+  }
+
   getCountry(): Observable<IApiResponse> {
     return this.http.get<IApiResponse>(
       `${environment.apiUrl}${apisList.masterData.country}`
